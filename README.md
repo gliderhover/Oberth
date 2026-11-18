@@ -20,3 +20,6 @@ Links between pages are root-absolute (`/capacity/#matcher`), so the site must b
     npx esbuild thermal/src/main.js --bundle --format=esm --minify --outfile=thermal/app.js
 
 Product data lives in `thermal/src/data.js`; procedural 3D models and exploded-part offsets in `thermal/src/scene.js`.
+
+## Marketplace
+`/marketplace/` lists CS Storage hardware (24 listings) with filters, search and sort; each listing has its own page at `/marketplace/listing/<slug>/`. All listing data lives in `market.py` in the build workspace, which writes the grid, the detail pages and `marketplace/listings.js`. Photos in `marketplace/img/` are cropped from the CS Storage product manual, one per listed product.

@@ -1,0 +1,702 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PCIe Gen4 ×4 NVMe SSD · Marketplace · Oberth Compute</title>
+<meta name="description" content="PCIe Gen4 ×4 NVMe SSD: The fastest drive in the line: 5,000 MB/s sequential reads for dataset staging, scratch space and local caches.">
+<meta name="theme-color" content="#07070A">
+<meta property="og:title" content="Oberth Compute">
+<meta property="og:description" content="Reserved H100, H200, B200 and B300 capacity in the US. Terms from one month to five years.">
+<meta property="og:image" content="/assets/og.png">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/icon-512.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Michroma&family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#07070A; --bg2:#0D0D11; --line:rgba(255,255,255,.09); --line2:rgba(255,255,255,.16);
+  --fg:#F4F4F5; --mut:#A1A1AA; --dim:#8B8B94; --card:rgba(255,255,255,.025);
+  --mono:"JetBrains Mono",ui-monospace,monospace; --disp:"Inter Tight",Inter,system-ui,sans-serif; --wm:Michroma,Inter,sans-serif;
+  --r:18px; --max:1200px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Inter,system-ui,sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+[hidden]{display:none!important}
+:focus-visible{outline:2px solid #fff;outline-offset:3px;border-radius:6px}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 28px}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+.skip{position:absolute;left:-9999px;top:8px;background:#fff;color:#000;padding:8px 14px;border-radius:8px;z-index:100}
+.skip:focus{left:12px}
+
+/* ---------- nav ---------- */
+.nav{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .4s,border-color .4s,backdrop-filter .4s;border-bottom:1px solid transparent}
+.nav.scrolled{background:rgba(7,7,10,.72);backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%);border-color:var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:72px;gap:24px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand svg{width:30px;height:30px;color:#fff}
+.brand .wm{font-family:var(--wm);font-size:15px;letter-spacing:.32em}
+.navlinks{display:flex;align-items:center;gap:30px;font-size:14px;color:var(--mut)}
+.navlinks a:hover{color:#fff}
+.btn{display:inline-flex;align-items:center;gap:10px;height:46px;padding:0 22px;border-radius:999px;font-weight:600;font-size:14px;letter-spacing:.01em;cursor:pointer;border:1px solid transparent;transition:transform .25s cubic-bezier(.2,.8,.2,1),background .25s,border-color .25s,color .25s;will-change:transform}
+.btn-p{background:#fff;color:#07070A}
+.btn-p:hover{background:#E4E4E7}
+.btn-g{border-color:var(--line2);color:#fff;background:rgba(255,255,255,.02)}
+.btn-g:hover{border-color:rgba(255,255,255,.4)}
+.btn svg{width:16px;height:16px;transition:transform .25s}
+.btn:hover svg{transform:translateX(3px)}
+.menu-btn{display:none;background:none;border:1px solid var(--line2);color:#fff;border-radius:999px;height:42px;padding:0 16px;font:inherit;font-size:14px}
+
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;overflow:hidden;padding:120px 0 80px}
+#orbits{position:absolute;inset:0;width:100%;height:100%;z-index:0}
+.hero::after{content:"";position:absolute;inset:auto 0 0 0;height:220px;background:linear-gradient(to bottom,transparent,var(--bg));z-index:1;pointer-events:none}
+.hero .wrap{position:relative;z-index:2;width:100%}
+.eyebrow{display:inline-flex;align-items:center;gap:12px;padding:8px 14px 8px 10px;border:1px solid var(--line2);border-radius:999px;background:rgba(7,7,10,.5);backdrop-filter:blur(6px)}
+.pulse{width:8px;height:8px;border-radius:50%;background:#fff;position:relative}
+.pulse::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:1px solid #fff;animation:ping 2.4s cubic-bezier(0,0,.2,1) infinite}
+@keyframes ping{0%{transform:scale(.6);opacity:.9}100%{transform:scale(2.2);opacity:0}}
+h1{font-family:var(--disp);font-weight:600;font-size:clamp(44px,7.4vw,104px);line-height:.98;letter-spacing:-.035em;margin:28px 0 26px;max-width:12ch}
+h1 .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em}
+h1 .w>span{display:inline-block;transform:translateY(110%);transition:transform 1.1s cubic-bezier(.16,1,.3,1)}
+.ready h1 .w>span{transform:none}
+h1 em{font-style:normal;color:#07070A;-webkit-text-stroke:2.6px rgba(255,255,255,.9);paint-order:stroke fill;-webkit-font-smoothing:antialiased}
+.lede{font-size:clamp(17px,1.6vw,20px);color:var(--mut);max-width:560px;margin:0 0 38px}
+.cta-row{display:flex;flex-wrap:wrap;gap:14px}
+.hero-meta{position:absolute;right:28px;bottom:120px;z-index:2;display:flex;flex-direction:column;gap:10px;text-align:right}
+.hero-meta b{color:#fff;font-weight:500}
+.fade-in{opacity:0;transform:translateY(16px);transition:opacity 1s .5s,transform 1s .5s cubic-bezier(.16,1,.3,1)}
+.ready .fade-in{opacity:1;transform:none}
+
+/* ---------- ticker ---------- */
+.ticker{border-block:1px solid var(--line);overflow:hidden;position:relative;background:var(--bg)}
+.ticker-track{display:flex;width:max-content;animation:scroll 42s linear infinite}
+.ticker span{font-family:var(--wm);font-size:13px;letter-spacing:.28em;color:var(--mut);padding:22px 34px;white-space:nowrap;display:flex;align-items:center;gap:34px}
+.ticker span::after{content:"";width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.35)}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+/* ---------- sections ---------- */
+section{position:relative}
+.sec{padding:140px 0}
+.sec-head{display:grid;grid-template-columns:1fr 1.3fr;gap:48px;align-items:end;margin-bottom:64px}
+.idx{display:flex;align-items:center;gap:14px;margin-bottom:22px}
+.idx i{display:block;width:36px;height:1px;background:var(--line2)}
+h2{font-family:var(--disp);font-weight:600;font-size:clamp(34px,4.4vw,60px);line-height:1.02;letter-spacing:-.03em;margin:0}
+.sec-head p{color:var(--mut);font-size:18px;margin:0;max-width:520px}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)}
+.reveal.in{opacity:1;transform:none}
+
+/* spotlight cards */
+.spot{position:relative;border:1px solid var(--line);border-radius:var(--r);background:var(--card);overflow:hidden;isolation:isolate}
+.spot::before{content:"";position:absolute;inset:0;z-index:-1;opacity:0;transition:opacity .4s;background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),rgba(255,255,255,.075),transparent 60%)}
+.spot:hover::before{opacity:1}
+.spot::after{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;z-index:-1;opacity:0;transition:opacity .4s;background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%),rgba(255,255,255,.45),transparent 60%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+.spot:hover::after{opacity:1}
+
+/* GPU cards */
+.gpus{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.gpu{padding:28px 26px 26px;min-height:360px;display:flex;flex-direction:column;transform-style:preserve-3d;transition:transform .5s cubic-bezier(.16,1,.3,1)}
+.gpu .top{display:flex;justify-content:space-between;align-items:center}
+.gpu .chip{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--mut);border:1px solid var(--line2);border-radius:999px;padding:4px 10px}
+.gpu h3{font-family:var(--wm);font-weight:400;font-size:40px;letter-spacing:.06em;margin:auto 0 6px}
+.gpu .arch{color:var(--mut);font-size:14px;margin-bottom:22px}
+.gpu dl{margin:0;display:grid;gap:10px;border-top:1px solid var(--line);padding-top:18px}
+.gpu dl div{display:flex;justify-content:space-between;gap:12px;font-size:14px}
+.gpu dt{color:var(--dim)}
+.gpu dd{margin:0;font-family:var(--mono);font-size:13px}
+.die{width:54px;height:54px;border:1px solid var(--line2);border-radius:10px;position:relative;background:repeating-linear-gradient(90deg,transparent 0 6px,rgba(255,255,255,.05) 6px 7px),repeating-linear-gradient(0deg,transparent 0 6px,rgba(255,255,255,.05) 6px 7px)}
+.die::after{content:"";position:absolute;inset:14px;border:1px solid rgba(255,255,255,.4);border-radius:3px;background:rgba(255,255,255,.04)}
+
+/* terms */
+.terms{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:16px}
+.term{padding:30px 28px}
+.term .big{font-family:var(--disp);font-weight:600;font-size:clamp(30px,3.2vw,44px);letter-spacing:-.03em;line-height:1.05;margin:14px 0 10px}
+.term p{color:var(--mut);margin:0;font-size:15px}
+.bar{height:4px;border-radius:4px;background:rgba(255,255,255,.08);margin-top:26px;position:relative;overflow:hidden}
+.bar i{position:absolute;inset:0 auto 0 0;width:0;background:#fff;border-radius:4px;transition:width 1.6s cubic-bezier(.16,1,.3,1) .2s}
+.in .bar i{width:var(--w)}
+
+/* matcher */
+.matcher{display:grid;grid-template-columns:1.25fr 1fr;gap:16px}
+.mpanel{padding:34px}
+.field{margin-bottom:30px}
+.field:last-child{margin-bottom:0}
+.flabel{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px}
+.flabel output{font-family:var(--mono);font-size:13px;color:#fff}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips label{position:relative}
+.chips input{position:absolute;opacity:0;inset:0;cursor:pointer;margin:0}
+.chips span{display:inline-flex;align-items:center;height:42px;padding:0 18px;border:1px solid var(--line2);border-radius:999px;font-size:14px;color:var(--mut);transition:all .25s;cursor:pointer;user-select:none}
+.chips input:checked+span{background:#fff;color:#07070A;border-color:#fff;font-weight:600}
+.chips input:focus-visible+span{outline:2px solid #fff;outline-offset:3px}
+.chips span:hover{border-color:rgba(255,255,255,.45);color:#fff}
+.chips input:checked+span:hover{color:#07070A}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:28px;background:transparent;cursor:pointer}
+input[type=range]::-webkit-slider-runnable-track{height:3px;border-radius:3px;background:linear-gradient(90deg,#fff var(--p,10%),rgba(255,255,255,.12) var(--p,10%))}
+input[type=range]::-moz-range-track{height:3px;border-radius:3px;background:rgba(255,255,255,.12)}
+input[type=range]::-moz-range-progress{height:3px;border-radius:3px;background:#fff}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:#fff;margin-top:-9.5px;box-shadow:0 0 0 6px rgba(255,255,255,.08);transition:box-shadow .2s}
+input[type=range]::-moz-range-thumb{width:22px;height:22px;border:none;border-radius:50%;background:#fff;box-shadow:0 0 0 6px rgba(255,255,255,.08)}
+input[type=range]:hover::-webkit-slider-thumb{box-shadow:0 0 0 10px rgba(255,255,255,.1)}
+.ticks{display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;color:var(--dim);margin-top:4px}
+.summary{display:flex;flex-direction:column;padding:34px;position:relative}
+.summary svg.orb{width:100%;max-width:280px;margin:6px auto 20px;display:block;overflow:visible}
+.sum-big{font-family:var(--disp);font-weight:600;font-size:clamp(40px,4.4vw,62px);letter-spacing:-.035em;line-height:1}
+.sum-big small{font-size:.38em;font-weight:500;color:var(--mut);letter-spacing:-.01em;margin-left:8px}
+.sum-list{list-style:none;margin:22px 0 28px;padding:0;display:grid;gap:12px;border-top:1px solid var(--line);padding-top:20px}
+.sum-list li{display:flex;justify-content:space-between;gap:12px;font-size:15px}
+.sum-list li span:first-child{color:var(--dim)}
+.sum-list li span:last-child{font-family:var(--mono);font-size:13px;text-align:right}
+.summary .btn{justify-content:center;margin-top:auto}
+.note{font-size:13px;color:var(--dim);margin:14px 0 0;text-align:center}
+.flip{display:inline-block;animation:flip .45s cubic-bezier(.16,1,.3,1)}
+@keyframes flip{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;position:relative}
+.step{padding:34px 30px 32px;min-height:280px;display:flex;flex-direction:column}
+.step .n{font-family:var(--wm);font-size:13px;letter-spacing:.2em;color:var(--dim)}
+.step h3{font-family:var(--disp);font-size:26px;font-weight:600;letter-spacing:-.02em;margin:auto 0 10px;line-height:1.15}
+.step p{margin:0;color:var(--mut);font-size:15px}
+.step .ico{width:46px;height:46px;margin:26px 0 30px;color:#fff}
+.path{position:absolute;left:0;right:0;top:-46px;height:40px;pointer-events:none}
+.path path{stroke-dasharray:1400;stroke-dashoffset:1400;transition:stroke-dashoffset 2.4s cubic-bezier(.16,1,.3,1)}
+.in .path path{stroke-dashoffset:0}
+
+/* audiences */
+.aud{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.aud .spot{padding:40px}
+.aud h3{font-family:var(--disp);font-size:32px;font-weight:600;letter-spacing:-.025em;margin:16px 0 12px;line-height:1.1}
+.aud p{color:var(--mut);margin:0 0 24px}
+.aud ul{list-style:none;margin:0 0 30px;padding:0;display:grid;gap:12px}
+.aud li{display:flex;gap:12px;align-items:flex-start;font-size:15px}
+.aud li::before{content:"";flex:none;width:14px;height:1px;background:#fff;margin-top:12px}
+
+/* exchange */
+.ex{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}
+.mail{padding:30px}
+.mail .hdr{display:flex;align-items:center;gap:12px;padding-bottom:18px;border-bottom:1px solid var(--line);margin-bottom:18px}
+.av{width:36px;height:36px;border-radius:50%;border:1px solid var(--line2);display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--mut);flex:none}
+.av svg{width:22px;height:22px;color:#fff}
+.mail .who{font-weight:600;font-size:15px}
+.mail .who small{display:block;font-weight:400;color:var(--dim);font-size:13px}
+.mail p{margin:0 0 12px;color:#D4D4D8;font-size:15px}
+.opt{border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:12px 0}
+.opt b{font-family:var(--mono);font-size:12px;letter-spacing:.12em;color:#fff;font-weight:500}
+.opt div{display:flex;justify-content:space-between;gap:10px;font-size:14px;color:var(--mut);margin-top:6px}
+.opt div span:last-child{font-family:var(--mono);font-size:12.5px;color:#fff;text-align:right}
+.typing{display:inline-flex;gap:4px;padding:6px 0}
+.typing i{width:6px;height:6px;border-radius:50%;background:var(--mut);animation:dot 1.2s infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes dot{0%,60%,100%{opacity:.25;transform:none}30%{opacity:1;transform:translateY(-3px)}}
+.illus{margin-top:18px}
+
+/* compare */
+.cmp{border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.cmp-row{display:grid;grid-template-columns:1.1fr 1fr 1fr;border-top:1px solid var(--line)}
+.cmp-row:first-child{border-top:none}
+.cmp-row>div{padding:20px 26px;font-size:15px}
+.cmp-row>div:first-child{color:var(--dim)}
+.cmp-row>div:nth-child(2){color:var(--mut)}
+.cmp-row>div:last-child{background:rgba(255,255,255,.035);color:#fff}
+.cmp-row.h>div{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;padding-block:16px}
+.cmp-row.h>div:last-child{display:flex;align-items:center;gap:10px}
+.cmp-row.h svg{width:18px;height:18px}
+
+/* faq */
+.faq{display:grid;grid-template-columns:1fr 1.6fr;gap:48px}
+details{border-top:1px solid var(--line)}
+details:last-child{border-bottom:1px solid var(--line)}
+summary{list-style:none;cursor:pointer;padding:26px 4px;display:flex;justify-content:space-between;align-items:center;gap:20px;font-family:var(--disp);font-size:21px;font-weight:500;letter-spacing:-.01em}
+summary::-webkit-details-marker{display:none}
+summary .pm{position:relative;width:16px;height:16px;flex:none}
+summary .pm::before,summary .pm::after{content:"";position:absolute;left:0;right:0;top:50%;height:1.5px;background:#fff;transition:transform .35s}
+summary .pm::after{transform:rotate(90deg)}
+details[open] summary .pm::after{transform:rotate(0)}
+details .ans{color:var(--mut);padding:0 4px 26px;max-width:640px;font-size:16px}
+details[open] .ans{animation:flip .4s cubic-bezier(.16,1,.3,1)}
+
+/* contact */
+.contact{padding:140px 0 120px;position:relative;overflow:hidden}
+.contact-card{position:relative;padding:64px;border-radius:28px;border:1px solid var(--line);background:radial-gradient(900px 400px at 85% 0%,rgba(255,255,255,.07),transparent 60%),var(--bg2);display:grid;grid-template-columns:1fr 1fr;gap:56px;overflow:hidden}
+.contact-card .bgmark{position:absolute;right:-120px;bottom:-140px;width:520px;height:520px;color:#fff;opacity:.05;pointer-events:none}
+.contact h2{font-size:clamp(36px,4.6vw,64px)}
+.contact p{color:var(--mut);font-size:18px;margin:20px 0 30px;max-width:440px}
+form .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.in-field{display:flex;flex-direction:column;gap:8px;margin-bottom:14px}
+.in-field label{font-size:13px;color:var(--mut)}
+.in-field input,.in-field textarea,.in-field select{width:100%;background:rgba(255,255,255,.03);border:1px solid var(--line2);border-radius:12px;color:#fff;font:inherit;font-size:15px;padding:13px 15px;transition:border-color .2s,background .2s}
+.in-field textarea{min-height:120px;resize:vertical}
+.in-field input:focus,.in-field textarea:focus,.in-field select:focus{outline:none;border-color:#fff;background:rgba(255,255,255,.05)}
+.in-field select option{background:#0D0D11}
+form .btn{width:100%;justify-content:center;margin-top:6px}
+
+
+/* thermal teaser */
+.th-card{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;padding:56px;border:1px solid var(--line);border-radius:28px;background:radial-gradient(60% 80% at 90% 10%,rgba(90,169,255,.09),transparent 70%),radial-gradient(40% 60% at 70% 100%,rgba(255,122,89,.06),transparent 70%),var(--card);transition:border-color .3s}
+.th-card:hover{border-color:rgba(255,255,255,.28)}
+.th-card h2{margin:14px 0 18px}
+.th-card p{color:var(--mut);max-width:480px;margin:0 0 28px}
+.th-card:hover .btn svg{transform:translateX(3px)}
+.iso{width:100%;height:auto;overflow:visible;filter:drop-shadow(0 30px 60px rgba(90,169,255,.08))}
+.iso .u polygon{stroke:rgba(255,255,255,.38);stroke-width:.7;stroke-linejoin:round}
+.iso .ft{fill:#20232b}.iso .fl{fill:#101217}.iso .fr{fill:#171a21}
+.iso .dc .ft{fill:#1b2a40}.iso .tk .ft{fill:#173a44}.iso .cdu .fl{fill:#1a1f2a}
+.iso .fan{fill:rgba(7,7,10,.6);stroke:rgba(255,255,255,.35);stroke-width:.7}
+.iso path{fill:none;stroke-linecap:round;stroke-linejoin:round}
+.iso .pb{stroke-width:3.2;opacity:.28}.iso .pb.s{stroke:#5AA9FF}.iso .pb.r{stroke:#FF7A59}
+.iso .pf{stroke-width:2.2;stroke-dasharray:4 10;animation:flow 1.4s linear infinite}.iso .pf.s{stroke:#9ccaff}.iso .pf.r{stroke:#ffb199}
+@keyframes flow{to{stroke-dashoffset:-14}}
+.iso text{font-family:var(--mono);font-size:6.2px;letter-spacing:.12em;text-transform:uppercase;fill:var(--mut)}
+@media (max-width:1020px){.th-card{grid-template-columns:1fr;padding:32px}}
+
+/* footer */
+footer{border-top:1px solid var(--line);padding:56px 0 40px}
+.foot{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;align-items:flex-start}
+.foot .brand svg{width:36px;height:36px}
+.foot .brand .wm{font-size:17px}
+.foot-sub{font-size:11px;letter-spacing:.62em;color:var(--dim);margin:8px 0 0 48px}
+.foot-links{display:flex;gap:56px;flex-wrap:wrap}
+.foot-links div{display:flex;flex-direction:column;gap:10px;font-size:14px;color:var(--mut)}
+.foot-links a:hover{color:#fff}
+.legal{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-top:56px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--dim)}
+
+
+/* network */
+.net{padding:90px 0 30px}
+.net-head{display:flex;justify-content:space-between;align-items:baseline;gap:20px;flex-wrap:wrap;margin-bottom:34px}
+.net-head p{margin:0;color:var(--mut);font-size:15px}
+.logos{position:relative;overflow:hidden;-webkit-mask:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);mask:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+.logos-track{display:flex;gap:14px;width:max-content;animation:scroll 46s linear infinite}
+.logos:hover .logos-track{animation-play-state:paused}
+.logo-card{flex:none;height:88px;min-width:230px;padding:0 34px;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:16px;background:var(--card);color:#C9C9CF;transition:color .3s,border-color .3s,background .3s;white-space:nowrap}
+.logo-card:hover{color:#fff;border-color:var(--line2);background:rgba(255,255,255,.05)}
+.lg1{font-family:var(--wm);font-size:17px;letter-spacing:.34em}
+.lg2{font-family:var(--disp);font-weight:700;font-size:21px;letter-spacing:-.01em}
+.lg3{font-family:var(--disp);font-weight:500;font-size:25px;letter-spacing:-.02em}
+.lg4{font-family:var(--disp);font-weight:600;font-size:21px;letter-spacing:.01em}
+.lg5{font-family:var(--mono);font-weight:500;font-size:16px;letter-spacing:.18em}
+.lg6{display:flex;flex-direction:column;align-items:flex-start;line-height:1.1}
+.lg6 b{font-family:var(--disp);font-weight:600;font-size:20px}
+.lg6 small{font-family:var(--mono);font-size:10px;letter-spacing:.16em;color:var(--dim)}
+
+/* responsive */
+@media (max-width:1020px){
+  .gpus{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .matcher,.ex,.contact-card,.faq,.sec-head{grid-template-columns:1fr}
+  .sec-head{gap:20px}
+  .hero-meta{display:none}
+  .contact-card{padding:40px}
+}
+@media (max-width:760px){
+  .navlinks{display:none;position:absolute;top:72px;left:16px;right:16px;flex-direction:column;align-items:flex-start;gap:18px;padding:24px;background:rgba(13,13,17,.97);border:1px solid var(--line);border-radius:16px}
+  .navlinks.open{display:flex}
+  .menu-btn{display:inline-flex;align-items:center}
+  .nav .btn-p.desk{display:none}
+  .sec{padding:96px 0}
+  .gpus,.terms,.steps,.aud{grid-template-columns:1fr}
+  .gpu{min-height:300px}
+  .path{display:none}
+  .cmp-row{grid-template-columns:1fr 1fr}
+  .cmp-row>div:first-child{grid-column:1/-1;padding-bottom:0;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+  .cmp-row.h>div:first-child{display:none}
+  .cmp-row>div{padding:16px 18px}
+  form .row{grid-template-columns:1fr}
+  .contact-card{padding:28px;border-radius:22px}
+  .wrap{padding:0 20px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+  h1 .w>span,.fade-in,.reveal{transform:none!important;opacity:1!important}
+}
+
+
+/* mega nav */
+.navlinks{gap:4px}
+.nav-item{position:relative;display:flex;align-items:center;border-radius:999px;transition:background .2s}
+.nav-top{display:flex;align-items:center;height:40px;padding:0 4px 0 13px;color:var(--mut);font-size:14px;transition:color .2s}
+.nav-chev{display:grid;place-items:center;width:24px;height:40px;padding:0 10px 0 2px;box-sizing:content-box;border:0;background:none;color:var(--mut);cursor:pointer}
+.nav-chev svg{width:12px;height:12px;transition:transform .3s cubic-bezier(.2,.8,.2,1);opacity:.75}
+.nav-item:hover,.nav-item.open{background:rgba(255,255,255,.06)}
+.nav-item:hover .nav-top,.nav-item.open .nav-top,.nav-item:hover .nav-chev,.nav-item.open .nav-chev{color:#fff}
+.nav-top[aria-current=page]{color:#fff}
+.nav-top[aria-current=page]::after{content:"";position:absolute;left:50%;bottom:-3px;width:4px;height:4px;border-radius:50%;background:#fff;transform:translateX(-50%)}
+.nav-item.open .nav-chev svg{transform:rotate(180deg)}
+.dd{position:absolute;top:calc(100% + 12px);left:50%;z-index:60;display:flex;gap:8px;min-width:310px;padding:8px;border:1px solid var(--line2);border-radius:20px;background:rgba(13,13,17,.96);backdrop-filter:blur(18px) saturate(140%);-webkit-backdrop-filter:blur(18px) saturate(140%);box-shadow:0 30px 70px rgba(0,0,0,.55);opacity:0;visibility:hidden;transform:translate(-50%,8px) scale(.98);transform-origin:top center;transition:opacity .22s,transform .3s cubic-bezier(.2,.8,.2,1),visibility 0s .3s}
+.dd::before{content:"";position:absolute;left:0;right:0;top:-14px;height:14px}
+.nav-item.open .dd{opacity:1;visibility:visible;transform:translate(-50%,0) scale(1);transition:opacity .22s,transform .3s cubic-bezier(.2,.8,.2,1),visibility 0s}
+.dd-list{display:flex;flex-direction:column;gap:2px;min-width:290px}
+.dd-list a{display:flex;gap:12px;align-items:center;padding:10px 12px;border-radius:14px;transition:background .2s}
+.dd-list a:hover,.dd-list a:focus-visible{background:rgba(255,255,255,.06)}
+.dd-list a b{display:block;font-size:14px;font-weight:600;color:#fff;line-height:1.3}
+.dd-list a em{display:block;font-style:normal;font-size:12.5px;color:var(--mut);line-height:1.35}
+.di{flex:none;display:grid;place-items:center;width:36px;height:36px;border-radius:10px;border:1px solid var(--line2);background:rgba(255,255,255,.03);color:#fff;transition:background .2s,color .2s,border-color .2s}
+.di svg{width:18px;height:18px}
+.dd-list a:hover .di{background:#fff;color:#07070A;border-color:#fff}
+.dd-wide{min-width:600px}
+.dd-feat{width:250px;flex:none;display:flex;flex-direction:column;justify-content:flex-end;padding:14px;border-radius:14px;border:1px solid var(--line);background:radial-gradient(80% 70% at 70% 20%,rgba(90,169,255,.16),transparent 70%),rgba(255,255,255,.02);transition:border-color .2s}
+.dd-feat:hover{border-color:rgba(255,255,255,.35)}
+.dd-iso{flex:1;display:grid;place-items:center;margin-bottom:10px}
+.dd-iso svg{width:100%;height:auto;max-height:150px}
+.dd-feat b{font-size:14px;color:#fff}
+.dd-feat em{font-style:normal;font-size:12.5px;color:var(--mut)}
+[id]{scroll-margin-top:84px}
+@media (max-width:1100px){.nav-top{padding-left:10px;font-size:13.5px}.nav .btn-g.desk{display:none}}
+@media (max-width:760px){
+  .navlinks{display:none;position:absolute;top:72px;left:12px;right:12px;flex-direction:column;align-items:stretch;gap:2px;padding:10px;max-height:calc(100vh - 90px);overflow:auto;background:#0D0D11;border:1px solid var(--line);border-radius:18px}
+  .navlinks.open{display:flex}
+  .nav-item{flex-wrap:wrap;border-radius:14px}
+  .nav-item:hover{background:none}
+  .nav-top{flex:1;height:50px;font-size:16px;color:#fff;padding-left:12px}
+  .nav-top[aria-current=page]::after{position:static;transform:none;margin-left:10px}
+  .nav-chev{width:44px;height:50px;padding:0;color:#fff}
+  .dd,.nav-item.open .dd{position:static;flex-basis:100%;transform:none;opacity:1;visibility:visible;box-shadow:none;border:0;background:none;padding:0 0 8px;min-width:0;display:none;backdrop-filter:none;-webkit-backdrop-filter:none}
+  .nav-item.open .dd{display:block}
+  .dd-list{min-width:0}
+  .dd-feat{display:none}
+}
+/* home sub-headline */
+.sub-h{font-family:var(--disp);font-weight:500;font-size:clamp(22px,2.4vw,34px);letter-spacing:-.02em;line-height:1.15;color:#fff;margin:-6px 0 22px}
+/* sub-page hero */
+.p-hero{position:relative;padding:170px 0 70px;overflow:hidden}
+.p-hero .wrap{position:relative;z-index:2}
+.p-hero h1{font-size:clamp(42px,6.2vw,88px);max-width:14ch}
+.p-hero.orb{min-height:78vh;display:flex;align-items:center}
+.p-hero.orb::after{content:"";position:absolute;inset:auto 0 0 0;height:180px;background:linear-gradient(to bottom,transparent,var(--bg));z-index:1;pointer-events:none}
+.p-glow::before{content:"";position:absolute;inset:-20% -10% auto;height:120%;background:radial-gradient(55% 50% at 75% 30%,rgba(255,255,255,.07),transparent 70%);pointer-events:none}
+.jump{display:flex;flex-wrap:wrap;gap:8px;margin-top:44px}
+.jump a{display:inline-flex;align-items:center;gap:10px;padding:9px 16px 9px 10px;border:1px solid var(--line2);border-radius:999px;font-size:13.5px;color:var(--mut);background:rgba(7,7,10,.5);backdrop-filter:blur(6px);transition:color .2s,border-color .2s}
+.jump a:hover{color:#fff;border-color:rgba(255,255,255,.4)}
+.jump a span{font-family:var(--mono);font-size:10.5px;color:var(--dim);border:1px solid var(--line2);border-radius:999px;padding:2px 7px}
+.mk-hero-art{position:absolute;right:max(28px,calc((100vw - 1200px)/2));top:150px;width:min(46vw,560px);z-index:1;pointer-events:none}
+.mk-hero-art svg{width:100%;height:auto;overflow:visible}
+.mh-lines path{fill:none;stroke:rgba(255,255,255,.3);stroke-width:1;stroke-dasharray:3 6;animation:flow 1.8s linear infinite}
+.mh-nodes circle{fill:#07070A;stroke:rgba(255,255,255,.7);stroke-width:1.2}
+.mh-hub{fill:#fff}.mh-ring{fill:none;stroke:rgba(255,255,255,.25);animation:ring 3s ease-in-out infinite;transform-origin:260px 210px}
+@keyframes ring{50%{transform:scale(1.12);opacity:.4}}
+.mk-hero-art text{font-family:var(--mono);font-size:11px;letter-spacing:.16em;fill:var(--dim)}
+.mk-hero-art .mh-t{fill:#07070A;font-size:10px;font-weight:500}
+@media (max-width:1020px){.mk-hero-art{display:none}}
+/* company: what we do */
+.svc{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.svc a{position:relative;display:flex;flex-direction:column;min-height:420px;padding:30px;border:1px solid var(--line);border-radius:24px;background:var(--card);overflow:hidden;transition:border-color .3s,transform .5s cubic-bezier(.2,.8,.2,1)}
+.svc a:hover{border-color:rgba(255,255,255,.3);transform:translateY(-4px)}
+.svc .art{flex:1;display:grid;place-items:center;margin:6px 0 22px;min-height:170px}
+.svc .art svg{width:100%;max-height:190px;overflow:visible}
+.svc h3{font-family:var(--disp);font-weight:600;font-size:26px;letter-spacing:-.02em;margin:10px 0 8px}
+.svc p{color:var(--mut);font-size:15px;margin:0 0 20px}
+.svc .go{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:14px}
+.svc .go svg{width:15px;height:15px;transition:transform .25s}
+.svc a:hover .go svg{transform:translateX(4px)}
+.svc .gpu-art rect{fill:rgba(255,255,255,.04);stroke:rgba(255,255,255,.35);stroke-width:1}
+.svc .gpu-art .lit{fill:#fff;opacity:.85;animation:blink 2.4s ease-in-out infinite}
+@keyframes blink{50%{opacity:.15}}
+.svc .mk-art circle{fill:#07070A;stroke:rgba(255,255,255,.6);stroke-width:1.2}
+.svc .mk-art path{fill:none;stroke:rgba(255,255,255,.28);stroke-width:1;stroke-dasharray:3 5;animation:flow 1.6s linear infinite}
+.svc .mk-art .hub{fill:#fff}
+@keyframes flow{to{stroke-dashoffset:-16}}
+@media (max-width:1020px){.svc{grid-template-columns:1fr}.svc a{min-height:0}}
+</style>
+<link rel="stylesheet" href="/marketplace/market.css?v=2">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="mark" viewBox="0 0 64 64"><path d="M12.91 51.09 L12.54 50.71 L12.2 50.3 L11.87 49.88 L11.56 49.44 L11.27 48.99 L11.01 48.52 L10.76 48.03 L10.54 47.52 L10.33 47 L10.15 46.47 L9.99 45.92 L9.85 45.35 L9.73 44.78 L9.64 44.19 L9.57 43.59 L9.51 42.97 L9.49 42.35 L9.48 41.72 L9.49 41.08 L9.53 40.42 L9.59 39.76 L9.67 39.1 L9.78 38.42 L9.9 37.74 L10.05 37.05 L10.22 36.36 L10.41 35.66 L10.62 34.96 L10.86 34.26 L11.11 33.56 L11.39 32.85 L11.68 32.14 L12 31.44 L12.33 30.73 L12.69 30.02 L13.06 29.32 L13.45 28.62 L13.86 27.92 L14.29 27.23 L14.74 26.54 L15.2 25.85 L15.68 25.18 L16.18 24.51 L16.69 23.84 L17.21 23.19 L17.75 22.54 L18.31 21.9 L18.88 21.28 L19.46 20.66 L20.05 20.05 L20.66 19.46 L21.28 18.88 L21.9 18.31 L22.54 17.75 L23.19 17.21 L23.84 16.69 L24.51 16.18 L25.18 15.68 L25.85 15.2 L26.54 14.74 L27.23 14.29 L27.92 13.86 L28.62 13.45 L29.32 13.06 L30.02 12.69 L30.73 12.33 L31.44 12 L32.14 11.68 L32.85 11.39 L33.56 11.11 L34.26 10.86 L34.96 10.62 L35.66 10.41 L36.36 10.22 L37.05 10.05 L37.74 9.9 L38.42 9.78 L39.1 9.67 L39.76 9.59 L40.42 9.53 L41.08 9.49 L41.72 9.48 L42.35 9.49 L42.97 9.51 L43.59 9.57 L44.19 9.64 L44.78 9.73 L45.35 9.85 L45.92 9.99 L46.47 10.15 L47 10.33 L47.52 10.54 L48.03 10.76 L48.52 11.01 L48.99 11.27 L49.44 11.56 L49.88 11.87 L50.3 12.2 L50.71 12.54 L51.09 12.91 L51.46 13.29 L51.8 13.7 L52.13 14.12 L52.44 14.56 L52.73 15.01 L52.99 15.48 L53.24 15.97 L53.46 16.48 L53.67 17 L53.85 17.53 L54.01 18.08 L54.15 18.65 L54.27 19.22 L54.36 19.81 L54.43 20.41 L54.49 21.03 L54.51 21.65 L54.52 22.28 L54.51 22.92 L54.47 23.58 L54.41 24.24 L54.33 24.9 L54.22 25.58 L54.1 26.26 L53.95 26.95 L53.78 27.64 L53.59 28.34 L53.38 29.04 L53.14 29.74 L52.89 30.44 L52.61 31.15 L52.32 31.86 L52 32.56 L51.67 33.27 L51.31 33.98 L50.94 34.68 L50.55 35.38 L50.14 36.08 L49.71 36.77 L49.26 37.46 L48.8 38.15 L48.32 38.82 L47.82 39.49 L47.31 40.16 L46.79 40.81 L46.25 41.46 L45.69 42.1 L45.12 42.72 L44.54 43.34 L43.95 43.95 L43.34 44.54 L42.72 45.12 L42.1 45.69 L41.46 46.25 L40.81 46.79 L40.16 47.31 L39.49 47.82 L38.82 48.32 L38.15 48.8 L37.46 49.26 L36.77 49.71 L36.08 50.14 L35.38 50.55 L34.68 50.94 L33.98 51.31 L33.27 51.67 L32.56 52 L31.86 52.32 L31.15 52.61 L30.44 52.89 L29.74 53.14 L29.04 53.38 L28.34 53.59 L27.64 53.78 L26.95 53.95 L26.26 54.1 L25.58 54.22 L24.9 54.33 L24.24 54.41 L23.58 54.47 L22.92 54.51 L22.28 54.52 L21.65 54.51 L21.03 54.49 L20.41 54.43 L19.81 54.36 L19.22 54.27 L18.65 54.15 L18.08 54.01 L17.53 53.85 L17 53.67 L16.48 53.46 L15.97 53.24 L15.48 52.99 L15.01 52.73 L14.56 52.44 L14.12 52.13 L13.7 51.8 L13.29 51.46 L12.91 51.09 Z" fill="none" stroke="currentColor" stroke-opacity="0.3" stroke-width="1.2"/><path d="M11.05 49.49 L11.23 49.76 L11.41 50.03 L11.61 50.3 L11.8 50.56 L12.01 50.81 L12.22 51.06 L12.44 51.3 L12.67 51.53 L12.9 51.76 L13.14 51.98 L13.38 52.2 L13.64 52.41 L13.9 52.61 L14.16 52.81 L14.43 52.99 L14.71 53.17 L15 53.35 L15.29 53.52 L15.58 53.68 L15.89 53.83 L16.2 53.97 L16.51 54.11 L16.83 54.24 L17.15 54.36 L17.48 54.48 L17.82 54.59 L18.16 54.69 L18.51 54.78 L18.86 54.86 L19.21 54.94 L19.57 55.01 L19.93 55.07 L20.3 55.12 L20.67 55.17 L21.05 55.2 L21.43 55.23 L21.82 55.26 L22.2 55.27 L22.59 55.28 L22.99 55.27 L23.39 55.26 L23.79 55.25 L24.19 55.22 L24.6 55.19 L25.01 55.15 L25.42 55.1 L25.83 55.04 L26.25 54.98 L26.67 54.91 L27.09 54.83 L27.51 54.74 L27.94 54.64 L28.36 54.54 L28.79 54.43 L29.22 54.31 L29.65 54.19 L30.08 54.06 L30.51 53.92 L30.95 53.77 L31.38 53.61 L31.81 53.45 L32.25 53.28 L32.68 53.11 L33.12 52.92 L33.55 52.73 L33.98 52.54 L34.42 52.33 L34.85 52.12 L35.28 51.91 L35.71 51.68 L36.15 51.45 L36.58 51.21 L37 50.97 L37.43 50.72 L37.86 50.47 L38.28 50.2 L38.7 49.94 L39.12 49.66 L39.54 49.38 L39.96 49.1 L40.37 48.8 L40.78 48.51 L41.19 48.2 L41.6 47.9 L42 47.58 L42.4 47.26 L42.8 46.94 L43.19 46.61 L43.58 46.28 L43.97 45.94 L44.36 45.6 L44.74 45.25 L45.11 44.89 L45.48 44.54 L45.85 44.18 L46.22 43.81 L46.58 43.44 L46.93 43.07 L47.28 42.69 L47.63 42.31 L47.97 41.93 L48.31 41.54 L48.64 41.15 L48.97 40.75 L49.29 40.36 L49.6 39.96 L49.91 39.55 L50.22 39.15 L50.52 38.74 L50.81 38.33 L51.1 37.91 L51.38 37.5 L51.66 37.08 L51.93 36.66 L52.2 36.24 L52.45 35.81 L52.71 35.39 L52.95 34.96 L53.19 34.53 L53.42 34.1 L53.65 33.67 L53.87 33.24 L54.08 32.8 L54.29 32.37 L54.48 31.93 L54.68 31.5 L54.86 31.06 L55.04 30.62 L55.21 30.19 L55.37 29.75 L55.53 29.31 L55.67 28.87 L55.81 28.44 L55.95 28 L56.07 27.56 L56.19 27.13 L56.3 26.69 L56.4 26.25 L56.49 25.82 L56.58 25.41 L52.03 24.7 L51.99 25.08 L51.95 25.44 L51.9 25.81 L51.84 26.18 L51.77 26.55 L51.7 26.93 L51.62 27.31 L51.53 27.69 L51.44 28.07 L51.34 28.46 L51.23 28.84 L51.11 29.23 L50.99 29.63 L50.86 30.02 L50.72 30.41 L50.58 30.81 L50.43 31.2 L50.27 31.6 L50.1 32 L49.93 32.4 L49.75 32.8 L49.57 33.2 L49.38 33.6 L49.18 34 L48.97 34.4 L48.76 34.79 L48.55 35.19 L48.32 35.59 L48.09 35.99 L47.86 36.38 L47.61 36.78 L47.36 37.17 L47.11 37.56 L46.85 37.95 L46.58 38.34 L46.31 38.72 L46.04 39.11 L45.76 39.49 L45.47 39.87 L45.18 40.24 L44.88 40.61 L44.58 40.99 L44.27 41.35 L43.96 41.72 L43.64 42.08 L43.32 42.44 L42.99 42.79 L42.66 43.14 L42.33 43.49 L41.99 43.83 L41.65 44.17 L41.3 44.5 L40.95 44.83 L40.6 45.16 L40.24 45.48 L39.88 45.8 L39.52 46.11 L39.16 46.41 L38.79 46.72 L38.42 47.01 L38.04 47.3 L37.67 47.59 L37.29 47.87 L36.91 48.15 L36.52 48.42 L36.14 48.68 L35.75 48.94 L35.36 49.19 L34.97 49.44 L34.58 49.68 L34.19 49.91 L33.8 50.14 L33.4 50.36 L33.01 50.58 L32.61 50.78 L32.22 50.99 L31.82 51.18 L31.42 51.37 L31.03 51.55 L30.63 51.73 L30.23 51.9 L29.84 52.06 L29.44 52.21 L29.05 52.36 L28.65 52.5 L28.26 52.63 L27.87 52.76 L27.47 52.88 L27.08 52.99 L26.7 53.1 L26.31 53.19 L25.92 53.28 L25.54 53.36 L25.16 53.44 L24.78 53.51 L24.4 53.57 L24.03 53.62 L23.66 53.67 L23.29 53.7 L22.92 53.74 L22.56 53.76 L22.2 53.77 L21.84 53.78 L21.49 53.78 L21.14 53.78 L20.79 53.76 L20.45 53.74 L20.11 53.71 L19.77 53.67 L19.44 53.63 L19.11 53.58 L18.79 53.52 L18.47 53.45 L18.15 53.38 L17.84 53.3 L17.54 53.21 L17.24 53.12 L16.94 53.02 L16.65 52.91 L16.36 52.79 L16.08 52.66 L15.8 52.53 L15.53 52.4 L15.27 52.25 L15.01 52.1 L14.75 51.94 L14.5 51.77 L14.26 51.6 L14.02 51.42 L13.79 51.23 L13.56 51.04 L13.34 50.84 L13.13 50.63 L12.92 50.42 L12.72 50.2 L12.52 49.97 L12.33 49.74 L12.15 49.5 L11.98 49.26 L11.81 49 Z" fill="currentColor"/><circle cx="54.3" cy="25.05" r="2.3" fill="currentColor"/><circle cx="17.11" cy="46.89" r="3.6" fill="currentColor"/></symbol>
+  <symbol id="arrow" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a href="/" class="brand" aria-label="Oberth Compute, home">
+      <svg aria-hidden="true"><use href="#mark"/></svg>
+      <span class="wm">OBERTH</span>
+    </a>
+    <nav class="navlinks" id="navlinks" aria-label="Primary">
+      <div class="nav-item" data-g="company"><a class="nav-top" href="/">Company</a><button class="nav-chev" aria-expanded="false" aria-label="Company sections"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5l3-3" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="dd"><div class="dd-list"><a href="/#top"><span class="di"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11.5 12 5l8 6.5V19a1 1 0 0 1-1 1h-4.5v-5h-5v5H5a1 1 0 0 1-1-1z"/></svg></span><span><b>Overview</b><em>What Oberth does</em></span></a><a href="/#operators"><span class="di"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg></span><span><b>Operators</b><em>Data center operators we work with</em></span></a><a href="/#why"><span class="di"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="m20 20-4.2-4.2"/></svg></span><span><b>Why a broker</b><em>Most capacity is never listed</em></span></a><a href="/#faq"><span class="di"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M9.6 9.4a2.5 2.5 0 1 1 3.4 2.3c-.6.3-1 .8-1 1.5v.6"/><circle cx="12" cy="16.8" r=".6" fill="currentColor"/></svg></span><span><b>FAQ</b><em>Terms, timing and pricing</em></span></a><a href="/#contact"><span class="di"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="6" width="17" height="12" rx="2"/><path d="m4 7 8 6 8-6"/></svg></span><span><b>Contact</b><em>Send a request or book a call</em></span></a></div></div></div>
+      <div class="nav-item" data-g="capacity"><a class="nav-top" href="/capacity/">MW Capacity</a><button class="nav-chev" aria-expanded="false" aria-label="MW Capacity sections"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5l3-3" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="dd"><div class="dd-list"><a href="/capacity/#capacity"><span class="di"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="7" width="17" height="10" rx="2"/><path d="M7 7V5M11 7V5M15 7V5M7 19v-2M11 19v-2M15 19v-2"/><rect x="7" y="10" width="6" height="4" rx="1"/></svg></span><span><b>Capacity</b><em>H100, H200, B200 and B300 in the US</em></span></a><a href="/capacity/#matcher"><span class="di"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h10M4 12h16M4 17h7"/><circle cx="17" cy="7" r="2.2"/><circle cx="14" cy="17" r="2.2"/></svg></span><span><b>Matcher</b><em>Shape a request in thirty seconds</em></span></a><a href="/capacity/#process"><span class="di"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 18h4v-4h4v-4h4V6h2"/></svg></span><span><b>Process</b><em>Three steps to a signed term</em></span></a></div></div></div>
+      <div class="nav-item" data-g="thermal"><a class="nav-top" href="/thermal/">Thermal Infra</a><button class="nav-chev" aria-expanded="false" aria-label="Thermal Infra sections"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5l3-3" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="dd dd-wide"><div class="dd-list"><a href="/thermal/#explorer"><span class="di"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5 19.5 8v8L12 20.5 4.5 16V8z"/><path d="m4.5 8 7.5 4.5L19.5 8M12 12.5v8"/></svg></span><span><b>System explorer</b><em>Explode every unit in a live 3D hall</em></span></a><a href="/thermal/#portfolio"><span class="di"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2.5"/><path d="M4 10h16M10 10v10"/></svg></span><span><b>Portfolio</b><em>CDUs to chillers, full spec tables</em></span></a><a href="/thermal/#climate"><span class="di"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19c0-8 5-13 14-14-1 9-6 14-14 14z"/><path d="M5 19 13 11"/></svg></span><span><b>Free cooling</b><em>Compressor-off hours by city</em></span></a><a href="/thermal/#maker"><span class="di"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10l5 3V10l5 3V6h3l1 14z"/><path d="M8 17h2M12 17h2"/></svg></span><span><b>Manufacturer</b><em>Built by TONFY</em></span></a></div><a class="dd-feat" href="/thermal/#explorer"><div class="dd-iso"><svg class="iso" viewBox="-64 -152 351 291" aria-hidden="true"><g class="u dc"><polygon class="ft" points="139.4,-126.5 229.1,-74.8 189.2,-51.8 99.6,-103.5"/><polygon class="fl" points="99.6,-57.5 189.2,-5.7 189.2,-51.8 99.6,-103.5"/><polygon class="fr" points="229.1,-28.7 189.2,-5.7 189.2,-51.8 229.1,-74.8"/></g><ellipse class="fan" cx="134.5" cy="-106.4" rx="13.2" ry="7.7"/><ellipse class="fan" cx="164.3" cy="-89.1" rx="13.2" ry="7.7"/><ellipse class="fan" cx="194.2" cy="-71.9" rx="13.2" ry="7.7"/><path class="pb s" d="M213.1,-31.1 L228.1,-22.4 L228.1,-84.5 L144.4,-36.2 L65.7,-81.7 L19.9,-55.2 L19.9,-29.9"/><path class="pf s" d="M213.1,-31.1 L228.1,-22.4 L228.1,-84.5 L144.4,-36.2 L65.7,-81.7 L19.9,-55.2 L19.9,-29.9"/><path class="pb r" d="M19.9,-34.5 L19.9,-66.7 L67.7,-94.3 L157.4,-42.6 L231.1,-85.1 L231.1,-23.0 L209.1,-35.6"/><path class="pf r" d="M19.9,-34.5 L19.9,-66.7 L67.7,-94.3 L157.4,-42.6 L231.1,-85.1 L231.1,-23.0 L209.1,-35.6"/><path class="pb s" d="M17.9,-24.2 L17.9,-40.2 L91.6,2.3 L91.6,16.1"/><path class="pf s" d="M17.9,-24.2 L17.9,-40.2 L91.6,2.3 L91.6,16.1"/><path class="pb r" d="M89.6,21.9 L89.6,3.5 L14.9,-39.7 L14.9,-19.0"/><path class="pf r" d="M89.6,21.9 L89.6,3.5 L14.9,-39.7 L14.9,-19.0"/><path class="pb s" d="M91.6,2.3 L123.5,20.7 L123.5,57.5"/><path class="pf s" d="M91.6,2.3 L123.5,20.7 L123.5,57.5"/><path class="pb r" d="M127.5,64.4 L127.5,23.0 L91.6,2.3"/><path class="pf r" d="M127.5,64.4 L127.5,23.0 L91.6,2.3"/><g class="u cdu"><polygon class="ft" points="15.9,-39.1 31.9,-29.9 8.0,-16.1 -8.0,-25.3"/><polygon class="fl" points="-8.0,23.0 8.0,32.2 8.0,-16.1 -8.0,-25.3"/><polygon class="fr" points="31.9,18.4 8.0,32.2 8.0,-16.1 31.9,-29.9"/></g><g class="u rk"><polygon class="ft" points="39.8,-27.6 51.8,-20.7 27.9,-6.9 15.9,-13.8"/><polygon class="fl" points="15.9,36.8 27.9,43.7 27.9,-6.9 15.9,-13.8"/><polygon class="fr" points="51.8,29.9 27.9,43.7 27.9,-6.9 51.8,-20.7"/></g><g class="u rk"><polygon class="ft" points="53.8,-19.6 65.7,-12.7 41.8,1.1 29.9,-5.8"/><polygon class="fl" points="29.9,44.9 41.8,51.7 41.8,1.1 29.9,-5.8"/><polygon class="fr" points="65.7,37.9 41.8,51.7 41.8,1.1 65.7,-12.7"/></g><g class="u rk"><polygon class="ft" points="67.7,-11.5 79.7,-4.6 55.8,9.2 43.8,2.3"/><polygon class="fl" points="43.8,52.9 55.8,59.8 55.8,9.2 43.8,2.3"/><polygon class="fr" points="79.7,46.0 55.8,59.8 55.8,9.2 79.7,-4.6"/></g><g class="u rk"><polygon class="ft" points="81.7,-3.5 93.6,3.4 69.7,17.2 57.8,10.3"/><polygon class="fl" points="57.8,60.9 69.7,67.8 69.7,17.2 57.8,10.3"/><polygon class="fr" points="93.6,54.0 69.7,67.8 69.7,17.2 93.6,3.4"/></g><g class="u rk"><polygon class="ft" points="95.6,4.6 107.6,11.5 83.7,25.3 71.7,18.4"/><polygon class="fl" points="71.7,69.0 83.7,75.9 83.7,25.3 71.7,18.4"/><polygon class="fr" points="107.6,62.1 83.7,75.9 83.7,25.3 107.6,11.5"/></g><g class="u tk"><polygon class="ft" points="115.5,43.7 151.4,64.4 133.5,74.7 97.6,54.0"/><polygon class="fl" points="97.6,81.6 133.5,102.3 133.5,74.7 97.6,54.0"/><polygon class="fr" points="151.4,92.0 133.5,102.3 133.5,74.7 151.4,64.4"/></g></svg></div><b>Open the 3D explorer</b><em>Every loop and every part, exploded</em></a></div></div>
+      <div class="nav-item" data-g="market"><a class="nav-top" href="/marketplace/" aria-current="page">Marketplace</a><button class="nav-chev" aria-expanded="false" aria-label="Marketplace sections"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5l3-3" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="dd"><div class="dd-list"><a href="/marketplace/#listings"><span class="di"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/><rect x="9.5" y="9.5" width="5" height="5" rx=".6"/><path d="M9 3v3M12 3v3M15 3v3M9 18v3M12 18v3M15 18v3M3 9h3M3 12h3M3 15h3M18 9h3M18 12h3M18 15h3"/></svg></span><span><b>All listings</b><em>SSDs, memory and flash, quoted to order</em></span></a><a href="/marketplace/?cat=ssd#listings"><span class="di"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="8" width="18" height="8" rx="1.5"/><path d="M6 12h5M16 11.2v1.6M18 11.2v1.6"/></svg></span><span><b>Consumer SSD</b><em>SATA, mSATA, M.2 and NVMe</em></span></a><a href="/marketplace/?cat=mem#listings"><span class="di"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h18v7H3z"/><path d="M6 15v3M9 15v3M12 15v3M15 15v3M18 15v3M6 10.5h3v2H6zM10.5 10.5h3v2h-3zM15 10.5h3v2h-3z"/></svg></span><span><b>Memory</b><em>DDR5, DDR4 and DDR3 modules</em></span></a><a href="/marketplace/?cat=ind#listings"><span class="di"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10l5 3V10l5 3V6h3l1 14z"/><path d="M8 17h2M12 17h2"/></svg></span><span><b>Industrial</b><em>Wide-temperature SSD and DRAM</em></span></a><a href="/marketplace/#buyers"><span class="di"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="9" r="3"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0"/><circle cx="17" cy="10" r="2.3"/><path d="M15.5 19a4.5 4.5 0 0 1 5-4.4"/></svg></span><span><b>GPU capacity</b><em>For AI teams and capacity owners</em></span></a></div></div></div>
+      </nav>
+    <div style="display:flex;gap:10px;align-items:center">
+      <a href="/book/" class="btn btn-g desk">Book a call</a>
+      <a href="/capacity/#matcher" class="btn btn-p desk">Find capacity <svg aria-hidden="true"><use href="#arrow"/></svg></a>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="navlinks">Menu</button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<section class="ld" id="top">
+  <div class="wrap">
+    <nav class="crumbs mono" aria-label="Breadcrumb"><a href="/marketplace/">Marketplace</a><i>/</i><a href="/marketplace/?cat=ssd#listings">Consumer SSD</a><i>/</i><span>PCIe Gen4 ×4 NVMe SSD</span></nav>
+    <div class="ld-top">
+      <div class="ld-gal">
+        <div class="ld-tile" id="ldVis"><span class="lc-badge c-ssd">Consumer SSD</span><img id="ldImg" src="/marketplace/img/nvme-gen4.jpg" alt="PCIe Gen4 ×4 NVMe SSD product photo" width="900" height="600"><i class="hw-sheen" aria-hidden="true"></i></div>
+        <p class="ld-cap mono" id="ldCap"></p>
+        <div class="ld-fp" id="ldFp" hidden><div class="ld-fp-h"><span class="mono">Footprint, true to scale</span><em id="ldFpT"></em></div><div id="ldFpS"></div></div>
+      </div>
+      <div class="ld-info">
+        <h1 class="ld-h">PCIe Gen4 ×4 NVMe SSD</h1>
+        <p class="lc-loc"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg>Shenzhen, China · CS Storage</p>
+        <div class="lc-tags"><span>Buy</span><span>New</span><span>OEM / ODM</span></div>
+        <p class="ld-desc">The fastest drive in the line: 5,000 MB/s sequential reads for dataset staging, scratch space and local caches.</p>
+        <div class="hw-opts" id="ldOpts"></div>
+        <div class="hw-meters" id="ldMeters" hidden>
+          <div class="hw-m" data-k="read"><span>Read</span><div><i></i></div><b>0</b></div>
+          <div class="hw-m" data-k="write"><span>Write</span><div><i></i></div><b>0</b></div>
+          <em class="mono" id="ldMeterNote"></em>
+        </div>
+        <div class="ld-price"><div><small>Price</small><b>Quote on request</b><em>Unit price, MOQ and lead time in our reply</em></div></div>
+        <div class="hw-buy">
+          <div class="qty"><button id="ldMinus" aria-label="Decrease quantity">−</button><input id="ldQty" value="1" inputmode="numeric" aria-label="Quantity"><button id="ldPlus" aria-label="Increase quantity">+</button></div>
+          <button class="btn btn-p hw-add" id="ldAdd">Add to quote list <svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
+        </div>
+        <a class="ld-direct" id="ldDirect" href="#">Or email a quote request for this configuration <svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <p class="hw-sel mono"><span>Selected</span> <b id="ldSel"></b></p>
+      </div>
+    </div>
+
+    <div class="ld-grid">
+      <div class="hw-card reveal"><div class="hw-card-h"><span class="mono">Specifications</span></div><dl class="ld-specs"><div><dt>Manufacturer</dt><dd>CS Storage (畅行存储)</dd></div><div><dt>Ships from</dt><dd>Shenzhen, China</dd></div><div><dt>Interface</dt><dd>PCIe Gen4 ×4, NVMe</dd></div><div><dt>Form factor</dt><dd>M.2 2280</dd></div><div><dt>Dimensions</dt><dd>80 × 22 × 2.4 mm</dd></div><div><dt>NAND flash</dt><dd>Hynix · Micron · SanDisk · Toshiba</dd></div><div><dt>Operating temperature</dt><dd>0 to 70 °C</dd></div><div><dt>Quotation items</dt><dd>23–25</dd></div></dl></div>
+      <div class="hw-card reveal" style="transition-delay:.06s"><div class="hw-card-h"><span class="mono">Applications</span></div><div class="ld-apps"><span>AI dataset staging</span><span>Scratch &amp; cache</span><span>Workstations</span><span>Edge inference</span></div>
+        <div class="hw-card-h" style="margin-top:26px"><span class="mono">About the manufacturer</span></div>
+        <p class="ld-about">CS Storage (深圳畅行存储) has built memory and SSD products for more than ten years in its own automated factory in Shenzhen, working with Phison, Silicon Motion, MaxIO, SK hynix, YMTC, CXMT, JHICC and Samsung. Every NAND and DRAM part is fully tested, only first-pass units ship, and BOMs can be locked for long programs.</p></div>
+    </div>
+
+    <div class="hw-card ld-var reveal">
+      <div class="hw-card-h"><span class="mono">All configurations · 3</span><em>Click a row to select it</em></div>
+      <div class="hw-scroll"><table><thead><tr><th>Capacity</th><th class="num">Read / write MB/s</th><th><span class="sr">Add</span></th></tr></thead><tbody id="ldRows"><tr data-v="0"><td>512GB</td><td class="num">5,000 / 4,500</td><td><button class="add-s" data-v="0">+ Add</button></td></tr><tr data-v="1"><td>1TB</td><td class="num">5,000 / 4,600</td><td><button class="add-s" data-v="1">+ Add</button></td></tr><tr data-v="2"><td>2TB</td><td class="num">5,000 / 4,600</td><td><button class="add-s" data-v="2">+ Add</button></td></tr></tbody></table></div>
+    </div>
+
+    <div class="ld-rel">
+      <div class="ld-rel-h"><h2>Related listings</h2><a href="/marketplace/#listings" class="btn btn-g">All listings <svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+      <div class="lc-grid"><article class="lc" data-cat="ssd" data-grade="Consumer" data-ifaces="SATA" data-ffs="2.5&quot;" data-cmin="64.0" data-cmax="2048.0" data-read="550" data-name="2.5&quot; SATA SSD" data-slug="2-5-inch-sata-ssd" data-i="0" data-q="2.5&quot; sata ssd consumer ssd sata iii (6 gb/s) · 2.5&quot; sata 2.5&quot; 64gb 128gb 256gb 512gb 1tb 2tb" style="--i:0">
+  <a class="lc-img" href="/marketplace/listing/2-5-inch-sata-ssd/" tabindex="-1" aria-hidden="true"><span class="lc-badge c-ssd">Consumer SSD</span><img src="/marketplace/img/sata25.jpg" alt="" loading="lazy"></a>
+  <button class="lc-save" data-add="2-5-inch-sata-ssd" aria-label="Add 2.5&quot; SATA SSD to quote list"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
+  <div class="lc-b">
+    <h3><a href="/marketplace/listing/2-5-inch-sata-ssd/">2.5&quot; SATA SSD</a></h3>
+    <p class="lc-loc"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg>Shenzhen, China · CS Storage</p>
+    <ul class="lc-specs"><li>SATA III (6 Gb/s) · 2.5&quot;</li><li>64GB – 2TB</li><li>Up to 550 MB/s read</li></ul>
+    <div class="lc-tags"><span>Buy</span><span>New</span><span>OEM / ODM</span></div>
+    <div class="lc-f"><div><small>Price</small><b>On request</b></div><a class="btn btn-g lc-more" href="/marketplace/listing/2-5-inch-sata-ssd/">More details <svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+  </div>
+</article>
+<article class="lc" data-cat="ssd" data-grade="Consumer" data-ifaces="SATA" data-ffs="mSATA" data-cmin="256.0" data-cmax="2048.0" data-read="550" data-name="mSATA SSD" data-slug="msata-ssd" data-i="1" data-q="msata ssd consumer ssd msata (mini pcie slot) · msata sata msata 256gb 512gb 1tb 2tb" style="--i:1">
+  <a class="lc-img" href="/marketplace/listing/msata-ssd/" tabindex="-1" aria-hidden="true"><span class="lc-badge c-ssd">Consumer SSD</span><img src="/marketplace/img/msata.jpg" alt="" loading="lazy"></a>
+  <button class="lc-save" data-add="msata-ssd" aria-label="Add mSATA SSD to quote list"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
+  <div class="lc-b">
+    <h3><a href="/marketplace/listing/msata-ssd/">mSATA SSD</a></h3>
+    <p class="lc-loc"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg>Shenzhen, China · CS Storage</p>
+    <ul class="lc-specs"><li>mSATA (mini PCIe slot) · mSATA</li><li>256GB – 2TB</li><li>Up to 550 MB/s read</li></ul>
+    <div class="lc-tags"><span>Buy</span><span>New</span><span>OEM / ODM</span></div>
+    <div class="lc-f"><div><small>Price</small><b>On request</b></div><a class="btn btn-g lc-more" href="/marketplace/listing/msata-ssd/">More details <svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+  </div>
+</article>
+<article class="lc" data-cat="ssd" data-grade="Consumer" data-ifaces="SATA" data-ffs="M.2 2280" data-cmin="256.0" data-cmax="2048.0" data-read="550" data-name="M.2 2280 SATA SSD" data-slug="m2-2280-sata-ssd" data-i="2" data-q="m.2 2280 sata ssd consumer ssd sata iii, m.2 b+m key · m.2 2280 (ngff) sata m.2 2280 256gb 512gb 1tb 2tb" style="--i:2">
+  <a class="lc-img" href="/marketplace/listing/m2-2280-sata-ssd/" tabindex="-1" aria-hidden="true"><span class="lc-badge c-ssd">Consumer SSD</span><img src="/marketplace/img/m2-2280-sata.jpg" alt="" loading="lazy"></a>
+  <button class="lc-save" data-add="m2-2280-sata-ssd" aria-label="Add M.2 2280 SATA SSD to quote list"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
+  <div class="lc-b">
+    <h3><a href="/marketplace/listing/m2-2280-sata-ssd/">M.2 2280 SATA SSD</a></h3>
+    <p class="lc-loc"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg>Shenzhen, China · CS Storage</p>
+    <ul class="lc-specs"><li>SATA III, M.2 B+M key · M.2 2280 (NGFF)</li><li>256GB – 2TB</li><li>Up to 550 MB/s read</li></ul>
+    <div class="lc-tags"><span>Buy</span><span>New</span><span>OEM / ODM</span></div>
+    <div class="lc-f"><div><small>Price</small><b>On request</b></div><a class="btn btn-g lc-more" href="/marketplace/listing/m2-2280-sata-ssd/">More details <svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+  </div>
+</article>
+<article class="lc" data-cat="ssd" data-grade="Consumer" data-ifaces="SATA" data-ffs="M.2 2242" data-cmin="256.0" data-cmax="2048.0" data-read="560" data-name="M.2 2242 SATA SSD" data-slug="m2-2242-sata-ssd" data-i="3" data-q="m.2 2242 sata ssd consumer ssd sata iii, m.2 b+m key · m.2 2242 (ngff) sata m.2 2242 256gb 512gb 1tb 2tb" style="--i:3">
+  <a class="lc-img" href="/marketplace/listing/m2-2242-sata-ssd/" tabindex="-1" aria-hidden="true"><span class="lc-badge c-ssd">Consumer SSD</span><img src="/marketplace/img/m2-2242-sata.jpg" alt="" loading="lazy"></a>
+  <button class="lc-save" data-add="m2-2242-sata-ssd" aria-label="Add M.2 2242 SATA SSD to quote list"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
+  <div class="lc-b">
+    <h3><a href="/marketplace/listing/m2-2242-sata-ssd/">M.2 2242 SATA SSD</a></h3>
+    <p class="lc-loc"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg>Shenzhen, China · CS Storage</p>
+    <ul class="lc-specs"><li>SATA III, M.2 B+M key · M.2 2242 (NGFF)</li><li>256GB – 2TB</li><li>Up to 560 MB/s read</li></ul>
+    <div class="lc-tags"><span>Buy</span><span>New</span><span>OEM / ODM</span></div>
+    <div class="lc-f"><div><small>Price</small><b>On request</b></div><a class="btn btn-g lc-more" href="/marketplace/listing/m2-2242-sata-ssd/">More details <svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+  </div>
+</article></div>
+    </div>
+  </div>
+</section>
+<script type="application/json" id="ldData">{"slug": "pcie-gen4-nvme-ssd", "title": "PCIe Gen4 ×4 NVMe SSD", "cat": "ssd", "catName": "Consumer SSD", "src": "/marketplace/img/nvme-gen4.jpg", "axes": ["cap"], "variants": [{"cap": "512GB", "read": 5000, "write": 4500}, {"cap": "1TB", "read": 5000, "write": 4600}, {"cap": "2TB", "read": 5000, "write": 4600}], "shown": {"cap": "512GB"}, "default": {"cap": "512GB"}, "scale": "m2280", "url": "/marketplace/listing/pcie-gen4-nvme-ssd/"}</script>
+<button class="q-fab" id="qFab" aria-controls="qDrawer" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4h10l1 4H6zM6 8h12v11a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1z"/><path d="M10 12h4"/></svg>Quote list <b id="qCount">0</b></button>
+<div class="q-scrim" id="qScrim"></div>
+<aside class="q-drawer" id="qDrawer" aria-hidden="true" aria-label="Quote list">
+  <div class="q-h"><div><span class="mono">Request for quote</span><h3>Your quote list</h3></div><button class="q-close" id="qClose" aria-label="Close">✕</button></div>
+  <ul class="q-list" id="qList"></ul>
+  <div class="q-f">
+    <input id="qCo" placeholder="Company (optional)" aria-label="Company">
+    <textarea id="qNote" rows="3" placeholder="Notes: delivery country, firmware, labels, target price…" aria-label="Notes"></textarea>
+    <a class="btn btn-p" id="qSend" href="#">Send request <svg aria-hidden="true"><use href="#arrow"/></svg></a>
+    <div class="q-sub"><button id="qCopy">Copy list</button><button id="qClear">Clear</button></div>
+    <p class="mono">Opens an email to daniel@oberth.org with your list.</p>
+  </div>
+</aside>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a href="/" class="brand" aria-label="Oberth Compute, back to top"><svg aria-hidden="true"><use href="#mark"/></svg><span class="wm">OBERTH</span></a>
+        <div class="foot-sub">COMPUTE</div>
+      </div>
+      <div class="foot-links">
+        <div><span class="mono">Pages</span><a href="/">Company</a><a href="/capacity/">MW Capacity</a><a href="/thermal/">Thermal Infra</a><a href="/marketplace/">Marketplace</a></div>
+        <div><span class="mono">Contact</span><a href="mailto:daniel@oberth.org">daniel@oberth.org</a><a href="/book/">Book a call</a><a href="/#contact">Send a request</a></div>
+      </div>
+    </div>
+    <div class="legal"><span>© 2026 Oberth Compute</span><span>NVIDIA, H100, H200, B200 and B300 are trademarks of NVIDIA Corporation. Other company names are trademarks of their respective owners.</span></div>
+  </div>
+</footer>
+
+<script>
+(()=>{
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const EMAIL='daniel@oberth.org';
+const $=id=>document.getElementById(id);
+function solveE(M,e){let E=M;for(let k=0;k<8;k++)E-=(E-e*Math.sin(E)-M)/(1-e*Math.cos(E));return E}
+
+/* headline word split */
+const h=document.getElementById('h1');if(h){
+const walk=n=>{[...n.childNodes].forEach(c=>{
+  if(c.nodeType===3){const f=document.createDocumentFragment();c.textContent.split(/(\s+)/).forEach(t=>{if(!t)return;if(/^\s+$/.test(t)){f.appendChild(document.createTextNode(t));return}const w=document.createElement('span');w.className='w';const s=document.createElement('span');s.textContent=t;w.appendChild(s);f.appendChild(w)});c.replaceWith(f)}
+  else if(c.nodeType===1){const w=document.createElement('span');w.className='w';c.replaceWith(w);const s=document.createElement('span');w.appendChild(s);s.appendChild(c)}
+})};
+walk(h);
+[...h.querySelectorAll('.w>span')].forEach((s,i)=>s.style.transitionDelay=(.06*i)+'s');}
+requestAnimationFrame(()=>requestAnimationFrame(()=>document.body.classList.add('ready')));
+
+/* nav */
+const nav=document.getElementById('nav');
+const onS=()=>nav.classList.toggle('scrolled',scrollY>20);onS();addEventListener('scroll',onS,{passive:true});
+const mb=document.getElementById('menuBtn'),nl=document.getElementById('navlinks');
+mb.addEventListener('click',()=>{const o=nl.classList.toggle('open');mb.setAttribute('aria-expanded',o)});
+nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nl.classList.remove('open');mb.setAttribute('aria-expanded',false)}));
+
+/* reveal */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.14,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* spotlight + tilt */
+document.querySelectorAll('.spot').forEach(el=>{
+  el.addEventListener('pointermove',e=>{const r=el.getBoundingClientRect();el.style.setProperty('--mx',(e.clientX-r.left)+'px');el.style.setProperty('--my',(e.clientY-r.top)+'px');
+    if(!reduce&&el.classList.contains('tilt')){const x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;el.style.transform=`perspective(900px) rotateX(${(-y*6).toFixed(2)}deg) rotateY(${(x*6).toFixed(2)}deg) translateY(-4px)`}});
+  el.addEventListener('pointerleave',()=>{if(el.classList.contains('tilt'))el.style.transform=''});
+});
+/* magnetic buttons */
+if(!reduce&&matchMedia('(pointer:fine)').matches){document.querySelectorAll('.mag').forEach(b=>{
+  b.addEventListener('pointermove',e=>{const r=b.getBoundingClientRect();b.style.transform=`translate(${((e.clientX-r.left)/r.width-.5)*8}px,${((e.clientY-r.top)/r.height-.5)*8}px)`});
+  b.addEventListener('pointerleave',()=>b.style.transform='');
+})}
+
+/* ---------- hero orbits: Keplerian motion (fast at periapsis) ---------- */
+const cv=document.getElementById('orbits');if(cv){const cx=cv.getContext('2d');
+let W=0,H=0,DPR=1,mx=0,my=0,tmx=0,tmy=0;
+const orbits=[
+  {a:.46,e:.78,rot:-.78,T:26,w:1.6,lead:true},
+  {a:.62,e:.55,rot:-.55,T:40,w:1},
+  {a:.33,e:.62,rot:-1.05,T:17,w:1},
+  {a:.78,e:.38,rot:-.66,T:60,w:.8},
+  {a:.22,e:.30,rot:-.9,T:11,w:.8}
+];
+const stars=[];for(let i=0;i<160;i++)stars.push({x:Math.random(),y:Math.random(),r:Math.random()*1.1+.2,o:Math.random()*.5+.1,t:Math.random()*6});
+function size(){DPR=Math.min(devicePixelRatio||1,2);W=cv.clientWidth;H=cv.clientHeight;cv.width=W*DPR;cv.height=H*DPR;cx.setTransform(DPR,0,0,DPR,0,0)}
+size();addEventListener('resize',size);
+addEventListener('pointermove',e=>{tmx=(e.clientX/innerWidth-.5);tmy=(e.clientY/innerHeight-.5)},{passive:true});
+const trails=orbits.map(()=>[]);
+let t0=performance.now();
+function draw(now){
+  const t=(now-t0)/1000;
+  mx+=(tmx-mx)*.04;my+=(tmy-my)*.04;
+  cx.clearRect(0,0,W,H);
+  const S=Math.min(W,H*1.35)*.62;
+  const Fx=W*(W>1020?.81:.70)+mx*-18, Fy=H*.45+my*-14;
+  for(const s of stars){const a=s.o*(.6+.4*Math.sin(t*.8+s.t));cx.fillStyle=`rgba(255,255,255,${a})`;cx.beginPath();cx.arc(s.x*W+mx*-6*s.r,s.y*H+my*-6*s.r,s.r,0,6.283);cx.fill()}
+  /* planet glow */
+  const g=cx.createRadialGradient(Fx,Fy,0,Fx,Fy,S*.32);g.addColorStop(0,'rgba(255,255,255,.10)');g.addColorStop(1,'rgba(255,255,255,0)');cx.fillStyle=g;cx.beginPath();cx.arc(Fx,Fy,S*.32,0,6.283);cx.fill();
+  orbits.forEach((o,i)=>{
+    const a=o.a*S,c=a*o.e,b=a*Math.sqrt(1-o.e*o.e);
+    const cos=Math.cos(o.rot),sin=Math.sin(o.rot);
+    /* ellipse centre: focus is at planet; periapsis direction = rot */
+    const Cx=Fx-c*cos,Cy=Fy-c*sin;
+    cx.save();cx.translate(Cx,Cy);cx.rotate(o.rot);
+    cx.strokeStyle=`rgba(255,255,255,${o.lead?.22:.09})`;cx.lineWidth=o.lead?1.1:.8;
+    cx.beginPath();cx.ellipse(0,0,a,b,0,0,6.283);cx.stroke();cx.restore();
+    const M=reduce?1.2+i:((t/o.T)*6.283+i*1.7)%6.283;
+    const E=solveE(M,o.e);
+    const px=a*Math.cos(E),py=b*Math.sin(E);
+    const X=Cx+px*cos-py*sin,Y=Cy+px*sin+py*cos;
+    const tr=trails[i];tr.push([X,Y]);if(tr.length>(o.lead?70:40))tr.shift();
+    for(let k=1;k<tr.length;k++){const f=k/tr.length;cx.strokeStyle=`rgba(255,255,255,${f*(o.lead?.9:.45)})`;cx.lineWidth=f*(o.lead?3.2:1.6);cx.beginPath();cx.moveTo(tr[k-1][0],tr[k-1][1]);cx.lineTo(tr[k][0],tr[k][1]);cx.stroke()}
+    cx.fillStyle='#fff';cx.beginPath();cx.arc(X,Y,o.lead?3.2:1.8,0,6.283);cx.fill();
+    if(o.lead){const Px=Fx+(a-c)*cos,Py=Fy+(a-c)*sin;cx.strokeStyle='rgba(255,255,255,.35)';cx.lineWidth=1;cx.beginPath();cx.arc(Px,Py,7+3*Math.sin(t*2),0,6.283);cx.stroke()}
+  });
+  cx.fillStyle='#fff';cx.beginPath();cx.arc(Fx,Fy,Math.max(7,S*.028),0,6.283);cx.fill();
+  if(!reduce)requestAnimationFrame(draw);
+}
+requestAnimationFrame(draw);
+document.addEventListener('visibilitychange',()=>{if(!document.hidden&&!reduce){t0=performance.now()-((performance.now()-t0))}});}
+
+/* ---------- matcher ---------- */
+const f=document.getElementById('mform'),nodes=document.getElementById('nodes');if(f){
+const val=n=>(f.querySelector(`input[name=${n}]:checked`)||{}).value;
+function pop(el,txt){if(el.textContent===txt)return;el.textContent=txt;el.classList.remove('flip');void el.offsetWidth;el.classList.add('flip')}
+function upd(){
+  const n=+nodes.value,g=val('gpu');
+  nodes.style.setProperty('--p',((n-1)/127*100)+'%');
+  $('nodesOut').textContent=n+(n===128?'+':'')+(n===1?' node':' nodes');
+  pop($('sGpus'),(n*8).toLocaleString()+(n===128?'+':''));
+  pop($('sType'),g==='Flexible'?'any':g);
+  pop($('sNodes'),n+(n===128?'+':'')+' × 8-GPU');
+  pop($('sStart'),$('start').value);
+  pop($('sTerm'),val('term'));
+  pop($('sTeam'),val('team'));
+  /* orbit widens with size */
+  const k=.45+.55*Math.min(1,n/128);$('orbE').setAttribute('rx',(46+40*k).toFixed(1));$('orbE').setAttribute('ry',(26+18*k).toFixed(1));
+  const body=`Hi Daniel,\n\nWe are looking for GPU capacity:\n\n- GPU: ${g}\n- Size: ${n}${n===128?'+':''} nodes (${n*8}${n===128?'+':''} GPUs)\n- Start: ${$('start').value}\n- Term: ${val('term')}\n- Location: United States\n- Our team is based: ${val('team')}\n\nCompany:\nName:\n\nThanks`;
+  $('sendReq').href=`mailto:${EMAIL}?subject=${encodeURIComponent(`Capacity request: ${n*8} × ${g} GPUs, ${val('term')}`)}&body=${encodeURIComponent(body)}`;
+}
+f.addEventListener('input',upd);f.addEventListener('change',upd);upd();
+/* summary orbit dot */
+(function spin(now){const e=$('orbE'),rx=+e.getAttribute('rx'),ry=+e.getAttribute('ry'),ecc=Math.sqrt(1-(ry*ry)/(rx*rx));
+  $('orbF').setAttribute('cx',(100-rx*ecc).toFixed(1));
+  const M=reduce?2:(now/1000*.9)%6.283,E=solveE(M,ecc);
+  $('orbS').setAttribute('cx',(100+rx*Math.cos(E)).toFixed(1));$('orbS').setAttribute('cy',(70+ry*Math.sin(E)).toFixed(1));
+  if(!reduce)requestAnimationFrame(spin)})(0);}
+
+/* ---------- reply typing ---------- */
+const rep=document.getElementById('reply');if(rep){new IntersectionObserver((es,ob)=>{if(es[0].isIntersecting){ob.disconnect();setTimeout(()=>{$('typing').hidden=true;$('replyBody').hidden=false;$('replyBody').classList.add('flip')},reduce?0:1600)}},{threshold:.4}).observe(rep);}
+
+/* ---------- contact form -> email ---------- */
+$('cform')&&$('cform').addEventListener('submit',e=>{e.preventDefault();
+  const n=$('cname').value.trim(),em=$('cemail').value.trim();
+  if(!n||!/^\S+@\S+\.\S+$/.test(em)){(n?$('cemail'):$('cname')).focus();return}
+  const body=`Name: ${n}\nCompany: ${$('ccomp').value.trim()}\nEmail: ${em}\n\n${$('cmsg').value.trim()}`;
+  location.href=`mailto:${EMAIL}?subject=${encodeURIComponent('Inquiry from '+n+($('ccomp').value.trim()?' ('+$('ccomp').value.trim()+')':''))}&body=${encodeURIComponent(body)}`;
+});
+})();
+</script>
+<script>
+(()=>{const items=[...document.querySelectorAll('.nav-item')];const mq=matchMedia('(hover:hover) and (min-width:761px)');
+const set=(it,o)=>{it.classList.toggle('open',o);it.querySelector('.nav-chev').setAttribute('aria-expanded',o)};
+const close=x=>items.forEach(i=>{if(i!==x)set(i,false)});
+items.forEach(it=>{const b=it.querySelector('.nav-chev');let tm;
+ it.addEventListener('mouseenter',()=>{if(mq.matches){clearTimeout(tm);close(it);set(it,true)}});
+ it.addEventListener('mouseleave',()=>{if(mq.matches)tm=setTimeout(()=>set(it,false),140)});
+ b.addEventListener('click',e=>{e.stopPropagation();const o=!it.classList.contains('open');close(it);set(it,o)});
+ it.addEventListener('keydown',e=>{if(e.key==='Escape'){set(it,false);b.focus()}});
+ it.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{set(it,false);const nl=document.getElementById('navlinks');nl&&nl.classList.remove('open')}));
+});
+document.addEventListener('click',e=>{if(!e.target.closest('.nav-item'))close(null)});
+})();
+</script>
+<script type="module" src="/marketplace/listing.js?v=2"></script>
+</body>
+</html>
