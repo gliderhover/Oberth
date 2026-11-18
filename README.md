@@ -2,7 +2,14 @@
 
 Website for Oberth Compute: reserved NVIDIA H100, H200, B200 and B300 capacity in the US, on terms from one month to five years.
 
-Static site, no build step. `index.html` plus `assets/`. Served with GitHub Pages from `main`.
+Static site served with GitHub Pages from `main` at oberth.org. Four pages share one header (mega-menu) and footer:
+
+- `/` Company: overview, operators, what we do, why a broker, FAQ, contact
+- `/capacity/` MW Capacity: GPU lineup, capacity matcher, process
+- `/thermal/` Thermal Infra: TONFY cooling portfolio with the 3D explorer
+- `/marketplace/` Marketplace: for AI teams, for capacity owners, example request
+
+Links between pages are root-absolute (`/capacity/#matcher`), so the site must be served from the domain root.
 
 ## Thermal page
 
