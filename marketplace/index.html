@@ -580,7 +580,7 @@ function draw(now){
   mx+=(tmx-mx)*.04;my+=(tmy-my)*.04;
   cx.clearRect(0,0,W,H);
   const S=Math.min(W,H*1.35)*.62;
-  const Fx=W*(W>1020?.75:.66)+mx*-18, Fy=H*.45+my*-14;
+  const Fx=W*(W>1020?.81:.70)+mx*-18, Fy=H*.45+my*-14;
   for(const s of stars){const a=s.o*(.6+.4*Math.sin(t*.8+s.t));cx.fillStyle=`rgba(255,255,255,${a})`;cx.beginPath();cx.arc(s.x*W+mx*-6*s.r,s.y*H+my*-6*s.r,s.r,0,6.283);cx.fill()}
   /* planet glow */
   const g=cx.createRadialGradient(Fx,Fy,0,Fx,Fy,S*.32);g.addColorStop(0,'rgba(255,255,255,.10)');g.addColorStop(1,'rgba(255,255,255,0)');cx.fillStyle=g;cx.beginPath();cx.arc(Fx,Fy,S*.32,0,6.283);cx.fill();
