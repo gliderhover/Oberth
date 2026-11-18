@@ -236,6 +236,25 @@ form .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .in-field select option{background:#0D0D11}
 form .btn{width:100%;justify-content:center;margin-top:6px}
 
+
+/* thermal teaser */
+.th-card{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;padding:56px;border:1px solid var(--line);border-radius:28px;background:radial-gradient(60% 80% at 90% 10%,rgba(90,169,255,.09),transparent 70%),radial-gradient(40% 60% at 70% 100%,rgba(255,122,89,.06),transparent 70%),var(--card);transition:border-color .3s}
+.th-card:hover{border-color:rgba(255,255,255,.28)}
+.th-card h2{margin:14px 0 18px}
+.th-card p{color:var(--mut);max-width:480px;margin:0 0 28px}
+.th-card:hover .btn svg{transform:translateX(3px)}
+.iso{width:100%;height:auto;overflow:visible;filter:drop-shadow(0 30px 60px rgba(90,169,255,.08))}
+.iso .u polygon{stroke:rgba(255,255,255,.38);stroke-width:.7;stroke-linejoin:round}
+.iso .ft{fill:#20232b}.iso .fl{fill:#101217}.iso .fr{fill:#171a21}
+.iso .dc .ft{fill:#1b2a40}.iso .tk .ft{fill:#173a44}.iso .cdu .fl{fill:#1a1f2a}
+.iso .fan{fill:rgba(7,7,10,.6);stroke:rgba(255,255,255,.35);stroke-width:.7}
+.iso path{fill:none;stroke-linecap:round;stroke-linejoin:round}
+.iso .pb{stroke-width:3.2;opacity:.28}.iso .pb.s{stroke:#5AA9FF}.iso .pb.r{stroke:#FF7A59}
+.iso .pf{stroke-width:2.2;stroke-dasharray:4 10;animation:flow 1.4s linear infinite}.iso .pf.s{stroke:#9ccaff}.iso .pf.r{stroke:#ffb199}
+@keyframes flow{to{stroke-dashoffset:-14}}
+.iso text{font-family:var(--mono);font-size:6.2px;letter-spacing:.12em;text-transform:uppercase;fill:var(--mut)}
+@media (max-width:1020px){.th-card{grid-template-columns:1fr;padding:32px}}
+
 /* footer */
 footer{border-top:1px solid var(--line);padding:56px 0 40px}
 .foot{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;align-items:flex-start}
@@ -313,6 +332,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
     <nav class="navlinks" id="navlinks" aria-label="Primary">
       <a href="#capacity">Capacity</a>
       <a href="#matcher">Matcher</a>
+      <a href="thermal/">Thermal</a>
       <a href="#process">Process</a>
       <a href="#faq">FAQ</a>
       <a href="#contact">Contact</a>
@@ -606,6 +626,20 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
 </section>
 
 <!-- FAQ -->
+<section class="sec" id="thermal" style="padding-top:40px;padding-bottom:40px">
+  <div class="wrap">
+    <a class="th-card reveal" href="thermal/">
+      <div>
+        <span class="mono">Thermal infrastructure</span>
+        <h2>The cooling,<br>not just the compute.</h2>
+        <p>We also supply TONFY liquid and air cooling: CDUs, immersion tanks, dry coolers, chillers, fan walls and rear-door heat exchangers. Explore a full hall in 3D and explode any unit into its parts.</p>
+        <span class="btn btn-p">Explore thermal in 3D <svg aria-hidden="true"><use href="#arrow"/></svg></span>
+      </div>
+      <div class="th-vis"><svg class="iso" viewBox="-64 -152 351 291" aria-hidden="true"><g class="u dc"><polygon class="ft" points="139.4,-126.5 229.1,-74.8 189.2,-51.8 99.6,-103.5"/><polygon class="fl" points="99.6,-57.5 189.2,-5.7 189.2,-51.8 99.6,-103.5"/><polygon class="fr" points="229.1,-28.7 189.2,-5.7 189.2,-51.8 229.1,-74.8"/></g><ellipse class="fan" cx="134.5" cy="-106.4" rx="13.2" ry="7.7"/><ellipse class="fan" cx="164.3" cy="-89.1" rx="13.2" ry="7.7"/><ellipse class="fan" cx="194.2" cy="-71.9" rx="13.2" ry="7.7"/><path class="pb s" d="M213.1,-31.1 L228.1,-22.4 L228.1,-84.5 L144.4,-36.2 L65.7,-81.7 L19.9,-55.2 L19.9,-29.9"/><path class="pf s" d="M213.1,-31.1 L228.1,-22.4 L228.1,-84.5 L144.4,-36.2 L65.7,-81.7 L19.9,-55.2 L19.9,-29.9"/><path class="pb r" d="M19.9,-34.5 L19.9,-66.7 L67.7,-94.3 L157.4,-42.6 L231.1,-85.1 L231.1,-23.0 L209.1,-35.6"/><path class="pf r" d="M19.9,-34.5 L19.9,-66.7 L67.7,-94.3 L157.4,-42.6 L231.1,-85.1 L231.1,-23.0 L209.1,-35.6"/><path class="pb s" d="M17.9,-24.2 L17.9,-40.2 L91.6,2.3 L91.6,16.1"/><path class="pf s" d="M17.9,-24.2 L17.9,-40.2 L91.6,2.3 L91.6,16.1"/><path class="pb r" d="M89.6,21.9 L89.6,3.5 L14.9,-39.7 L14.9,-19.0"/><path class="pf r" d="M89.6,21.9 L89.6,3.5 L14.9,-39.7 L14.9,-19.0"/><path class="pb s" d="M91.6,2.3 L123.5,20.7 L123.5,57.5"/><path class="pf s" d="M91.6,2.3 L123.5,20.7 L123.5,57.5"/><path class="pb r" d="M127.5,64.4 L127.5,23.0 L91.6,2.3"/><path class="pf r" d="M127.5,64.4 L127.5,23.0 L91.6,2.3"/><g class="u cdu"><polygon class="ft" points="15.9,-39.1 31.9,-29.9 8.0,-16.1 -8.0,-25.3"/><polygon class="fl" points="-8.0,23.0 8.0,32.2 8.0,-16.1 -8.0,-25.3"/><polygon class="fr" points="31.9,18.4 8.0,32.2 8.0,-16.1 31.9,-29.9"/></g><g class="u rk"><polygon class="ft" points="39.8,-27.6 51.8,-20.7 27.9,-6.9 15.9,-13.8"/><polygon class="fl" points="15.9,36.8 27.9,43.7 27.9,-6.9 15.9,-13.8"/><polygon class="fr" points="51.8,29.9 27.9,43.7 27.9,-6.9 51.8,-20.7"/></g><g class="u rk"><polygon class="ft" points="53.8,-19.6 65.7,-12.7 41.8,1.1 29.9,-5.8"/><polygon class="fl" points="29.9,44.9 41.8,51.7 41.8,1.1 29.9,-5.8"/><polygon class="fr" points="65.7,37.9 41.8,51.7 41.8,1.1 65.7,-12.7"/></g><g class="u rk"><polygon class="ft" points="67.7,-11.5 79.7,-4.6 55.8,9.2 43.8,2.3"/><polygon class="fl" points="43.8,52.9 55.8,59.8 55.8,9.2 43.8,2.3"/><polygon class="fr" points="79.7,46.0 55.8,59.8 55.8,9.2 79.7,-4.6"/></g><g class="u rk"><polygon class="ft" points="81.7,-3.5 93.6,3.4 69.7,17.2 57.8,10.3"/><polygon class="fl" points="57.8,60.9 69.7,67.8 69.7,17.2 57.8,10.3"/><polygon class="fr" points="93.6,54.0 69.7,67.8 69.7,17.2 93.6,3.4"/></g><g class="u rk"><polygon class="ft" points="95.6,4.6 107.6,11.5 83.7,25.3 71.7,18.4"/><polygon class="fl" points="71.7,69.0 83.7,75.9 83.7,25.3 71.7,18.4"/><polygon class="fr" points="107.6,62.1 83.7,75.9 83.7,25.3 107.6,11.5"/></g><g class="u tk"><polygon class="ft" points="115.5,43.7 151.4,64.4 133.5,74.7 97.6,54.0"/><polygon class="fl" points="97.6,81.6 133.5,102.3 133.5,74.7 97.6,54.0"/><polygon class="fr" points="151.4,92.0 133.5,102.3 133.5,74.7 151.4,64.4"/></g><text x="237.1" y="-80.8" text-anchor="start">Dry cooler</text><text x="-16.0" y="-0.0" text-anchor="end">CDU</text><text x="19.9" y="56.5" text-anchor="end">Cold-plate racks</text><text x="149.5" y="104.8" text-anchor="start">Immersion tank</text></svg></div>
+    </a>
+  </div>
+</section>
+
 <section class="sec" id="faq" style="padding-top:40px">
   <div class="wrap faq">
     <div class="reveal">
@@ -657,7 +691,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
         <div class="foot-sub">COMPUTE</div>
       </div>
       <div class="foot-links">
-        <div><span class="mono">Site</span><a href="#capacity">Capacity</a><a href="#matcher">Matcher</a><a href="#process">Process</a><a href="#faq">FAQ</a></div>
+        <div><span class="mono">Site</span><a href="#capacity">Capacity</a><a href="#matcher">Matcher</a><a href="#process">Process</a><a href="thermal/">Thermal</a><a href="#faq">FAQ</a></div>
         <div><span class="mono">Contact</span><a href="mailto:daniel@oberth.org">daniel@oberth.org</a><a href="book/">Book a call</a><a href="#contact">Send a request</a></div>
       </div>
     </div>
