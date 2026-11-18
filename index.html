@@ -314,6 +314,48 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
   h1 .w>span,.fade-in,.reveal{transform:none!important;opacity:1!important}
 }
+
+/* mega nav */
+.navlinks{gap:6px}
+.nav-item{position:relative}
+.nav-trig{display:flex;align-items:center;gap:6px;height:40px;padding:0 12px;border:0;border-radius:999px;background:none;color:var(--mut);font:inherit;font-size:14px;cursor:pointer;transition:color .2s,background .2s}
+.nav-trig .chev{width:12px;height:12px;transition:transform .3s cubic-bezier(.2,.8,.2,1);opacity:.7}
+.nav-item:hover .nav-trig,.nav-item.open .nav-trig,.nav-trig:focus-visible{color:#fff;background:rgba(255,255,255,.06)}
+.nav-trig[aria-current=true]{color:#fff}
+.nav-trig[aria-current=true]::after{content:"";position:absolute;left:50%;bottom:-2px;width:4px;height:4px;border-radius:50%;background:#fff;transform:translateX(-50%)}
+.nav-item.open .chev{transform:rotate(180deg)}
+.dd{position:absolute;top:calc(100% + 12px);left:50%;z-index:60;display:flex;gap:8px;min-width:310px;padding:8px;border:1px solid var(--line2);border-radius:20px;background:rgba(13,13,17,.96);backdrop-filter:blur(18px) saturate(140%);-webkit-backdrop-filter:blur(18px) saturate(140%);box-shadow:0 30px 70px rgba(0,0,0,.55);opacity:0;visibility:hidden;transform:translate(-50%,8px) scale(.98);transform-origin:top center;transition:opacity .22s,transform .3s cubic-bezier(.2,.8,.2,1),visibility 0s .3s}
+.dd::before{content:"";position:absolute;left:0;right:0;top:-14px;height:14px}
+.nav-item.open .dd{opacity:1;visibility:visible;transform:translate(-50%,0) scale(1);transition:opacity .22s,transform .3s cubic-bezier(.2,.8,.2,1),visibility 0s}
+.dd-list{display:flex;flex-direction:column;gap:2px;min-width:290px}
+.dd-list a{display:flex;gap:12px;align-items:center;padding:10px 12px;border-radius:14px;transition:background .2s}
+.dd-list a:hover,.dd-list a:focus-visible{background:rgba(255,255,255,.06)}
+.dd-list a b{display:block;font-size:14px;font-weight:600;color:#fff;line-height:1.3}
+.dd-list a em{display:block;font-style:normal;font-size:12.5px;color:var(--mut);line-height:1.35}
+.di{flex:none;display:grid;place-items:center;width:36px;height:36px;border-radius:10px;border:1px solid var(--line2);background:rgba(255,255,255,.03);color:#fff;transition:background .2s,color .2s,border-color .2s}
+.di svg{width:18px;height:18px}
+.dd-list a:hover .di{background:#fff;color:#07070A;border-color:#fff}
+.dd-wide{min-width:600px}
+.dd-feat{width:250px;flex:none;display:flex;flex-direction:column;justify-content:flex-end;padding:14px;border-radius:14px;border:1px solid var(--line);background:radial-gradient(80% 70% at 70% 20%,rgba(90,169,255,.16),transparent 70%),rgba(255,255,255,.02);transition:border-color .2s}
+.dd-feat:hover{border-color:rgba(255,255,255,.35)}
+.dd-iso{flex:1;display:grid;place-items:center;margin-bottom:10px}
+.dd-iso svg{width:100%;height:auto;max-height:150px}
+.dd-iso text{display:none}
+.dd-feat b{font-size:14px;color:#fff}
+.dd-feat em{font-style:normal;font-size:12.5px;color:var(--mut)}
+@media (max-width:1100px){.nav-trig{padding:0 9px;font-size:13.5px}.nav .btn-g.desk{display:none}}
+@media (max-width:760px){
+  .navlinks{display:none;position:absolute;top:72px;left:12px;right:12px;flex-direction:column;align-items:stretch;gap:2px;padding:10px;max-height:calc(100vh - 90px);overflow:auto;background:#0D0D11;border:1px solid var(--line);border-radius:18px}
+  .navlinks.open{display:flex}
+  .nav-trig{width:100%;justify-content:space-between;height:48px;font-size:15px;color:#fff}
+  .nav-trig[aria-current=true]::after{display:none}
+  .dd,.nav-item.open .dd{position:static;transform:none;opacity:1;visibility:visible;box-shadow:none;border:0;background:none;padding:0 0 8px;min-width:0;display:none;backdrop-filter:none;-webkit-backdrop-filter:none}
+  .nav-item.open .dd{display:block}
+  .dd-list{min-width:0}
+  .dd-feat{display:none}
+}
+
+[id]{scroll-margin-top:84px}
 </style>
 </head>
 <body>
@@ -330,13 +372,12 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
       <span class="wm">OBERTH</span>
     </a>
     <nav class="navlinks" id="navlinks" aria-label="Primary">
-      <a href="#capacity">Capacity</a>
-      <a href="#matcher">Matcher</a>
-      <a href="thermal/">Thermal</a>
-      <a href="#process">Process</a>
-      <a href="#faq">FAQ</a>
-      <a href="#contact">Contact</a>
-    </nav>
+      <div class="nav-item" data-g="company"><button class="nav-trig" aria-expanded="false" aria-haspopup="true">Company<svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5l3-3" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="dd" role="menu"><div class="dd-list"><a href="#top" role="menuitem"><span class="di"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11.5 12 5l8 6.5V19a1 1 0 0 1-1 1h-4.5v-5h-5v5H5a1 1 0 0 1-1-1z"/></svg></span><span><b>Overview</b><em>Who we are and what we place</em></span></a><a href="#operators" role="menuitem"><span class="di"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg></span><span><b>Operators</b><em>Data center operators we work with</em></span></a><a href="#why" role="menuitem"><span class="di"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="m20 20-4.2-4.2"/></svg></span><span><b>Why a broker</b><em>Most capacity is never listed</em></span></a><a href="#faq" role="menuitem"><span class="di"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M9.6 9.4a2.5 2.5 0 1 1 3.4 2.3c-.6.3-1 .8-1 1.5v.6"/><circle cx="12" cy="16.8" r=".6" fill="currentColor"/></svg></span><span><b>FAQ</b><em>Terms, timing and pricing</em></span></a></div></div></div>
+      <div class="nav-item" data-g="capacity"><button class="nav-trig" aria-expanded="false" aria-haspopup="true">MW Capacity<svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5l3-3" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="dd" role="menu"><div class="dd-list"><a href="#capacity" role="menuitem"><span class="di"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="7" width="17" height="10" rx="2"/><path d="M7 7V5M11 7V5M15 7V5M7 19v-2M11 19v-2M15 19v-2"/><rect x="7" y="10" width="6" height="4" rx="1"/></svg></span><span><b>Capacity</b><em>H100, H200, B200 and B300 in the US</em></span></a><a href="#matcher" role="menuitem"><span class="di"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h10M4 12h16M4 17h7"/><circle cx="17" cy="7" r="2.2"/><circle cx="14" cy="17" r="2.2"/></svg></span><span><b>Matcher</b><em>Shape a request in thirty seconds</em></span></a><a href="#process" role="menuitem"><span class="di"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 18h4v-4h4v-4h4V6h2"/></svg></span><span><b>Process</b><em>Three steps to a signed term</em></span></a></div></div></div>
+      <div class="nav-item" data-g="thermal"><button class="nav-trig" aria-expanded="false" aria-haspopup="true">Thermal Infra<svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5l3-3" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="dd dd-wide" role="menu"><div class="dd-list"><a href="thermal/" role="menuitem"><span class="di"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11.5 12 5l8 6.5V19a1 1 0 0 1-1 1h-4.5v-5h-5v5H5a1 1 0 0 1-1-1z"/></svg></span><span><b>Overview</b><em>Liquid and air cooling for AI halls</em></span></a><a href="thermal/#explorer" role="menuitem"><span class="di"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5 19.5 8v8L12 20.5 4.5 16V8z"/><path d="m4.5 8 7.5 4.5L19.5 8M12 12.5v8"/></svg></span><span><b>System explorer</b><em>Explode every unit in a live 3D hall</em></span></a><a href="thermal/#portfolio" role="menuitem"><span class="di"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2.5"/><path d="M4 10h16M10 10v10"/></svg></span><span><b>Portfolio</b><em>CDUs to chillers, full spec tables</em></span></a><a href="thermal/#climate" role="menuitem"><span class="di"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19c0-8 5-13 14-14-1 9-6 14-14 14z"/><path d="M5 19 13 11"/></svg></span><span><b>Free cooling</b><em>Compressor-off hours by city</em></span></a><a href="thermal/#maker" role="menuitem"><span class="di"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10l5 3V10l5 3V6h3l1 14z"/><path d="M8 17h2M12 17h2"/></svg></span><span><b>Manufacturer</b><em>Built by TONFY</em></span></a></div><a class="dd-feat" href="thermal/#explorer"><div class="dd-iso"><svg class="iso" viewBox="-64 -152 351 291" aria-hidden="true"><g class="u dc"><polygon class="ft" points="139.4,-126.5 229.1,-74.8 189.2,-51.8 99.6,-103.5"/><polygon class="fl" points="99.6,-57.5 189.2,-5.7 189.2,-51.8 99.6,-103.5"/><polygon class="fr" points="229.1,-28.7 189.2,-5.7 189.2,-51.8 229.1,-74.8"/></g><ellipse class="fan" cx="134.5" cy="-106.4" rx="13.2" ry="7.7"/><ellipse class="fan" cx="164.3" cy="-89.1" rx="13.2" ry="7.7"/><ellipse class="fan" cx="194.2" cy="-71.9" rx="13.2" ry="7.7"/><path class="pb s" d="M213.1,-31.1 L228.1,-22.4 L228.1,-84.5 L144.4,-36.2 L65.7,-81.7 L19.9,-55.2 L19.9,-29.9"/><path class="pf s" d="M213.1,-31.1 L228.1,-22.4 L228.1,-84.5 L144.4,-36.2 L65.7,-81.7 L19.9,-55.2 L19.9,-29.9"/><path class="pb r" d="M19.9,-34.5 L19.9,-66.7 L67.7,-94.3 L157.4,-42.6 L231.1,-85.1 L231.1,-23.0 L209.1,-35.6"/><path class="pf r" d="M19.9,-34.5 L19.9,-66.7 L67.7,-94.3 L157.4,-42.6 L231.1,-85.1 L231.1,-23.0 L209.1,-35.6"/><path class="pb s" d="M17.9,-24.2 L17.9,-40.2 L91.6,2.3 L91.6,16.1"/><path class="pf s" d="M17.9,-24.2 L17.9,-40.2 L91.6,2.3 L91.6,16.1"/><path class="pb r" d="M89.6,21.9 L89.6,3.5 L14.9,-39.7 L14.9,-19.0"/><path class="pf r" d="M89.6,21.9 L89.6,3.5 L14.9,-39.7 L14.9,-19.0"/><path class="pb s" d="M91.6,2.3 L123.5,20.7 L123.5,57.5"/><path class="pf s" d="M91.6,2.3 L123.5,20.7 L123.5,57.5"/><path class="pb r" d="M127.5,64.4 L127.5,23.0 L91.6,2.3"/><path class="pf r" d="M127.5,64.4 L127.5,23.0 L91.6,2.3"/><g class="u cdu"><polygon class="ft" points="15.9,-39.1 31.9,-29.9 8.0,-16.1 -8.0,-25.3"/><polygon class="fl" points="-8.0,23.0 8.0,32.2 8.0,-16.1 -8.0,-25.3"/><polygon class="fr" points="31.9,18.4 8.0,32.2 8.0,-16.1 31.9,-29.9"/></g><g class="u rk"><polygon class="ft" points="39.8,-27.6 51.8,-20.7 27.9,-6.9 15.9,-13.8"/><polygon class="fl" points="15.9,36.8 27.9,43.7 27.9,-6.9 15.9,-13.8"/><polygon class="fr" points="51.8,29.9 27.9,43.7 27.9,-6.9 51.8,-20.7"/></g><g class="u rk"><polygon class="ft" points="53.8,-19.6 65.7,-12.7 41.8,1.1 29.9,-5.8"/><polygon class="fl" points="29.9,44.9 41.8,51.7 41.8,1.1 29.9,-5.8"/><polygon class="fr" points="65.7,37.9 41.8,51.7 41.8,1.1 65.7,-12.7"/></g><g class="u rk"><polygon class="ft" points="67.7,-11.5 79.7,-4.6 55.8,9.2 43.8,2.3"/><polygon class="fl" points="43.8,52.9 55.8,59.8 55.8,9.2 43.8,2.3"/><polygon class="fr" points="79.7,46.0 55.8,59.8 55.8,9.2 79.7,-4.6"/></g><g class="u rk"><polygon class="ft" points="81.7,-3.5 93.6,3.4 69.7,17.2 57.8,10.3"/><polygon class="fl" points="57.8,60.9 69.7,67.8 69.7,17.2 57.8,10.3"/><polygon class="fr" points="93.6,54.0 69.7,67.8 69.7,17.2 93.6,3.4"/></g><g class="u rk"><polygon class="ft" points="95.6,4.6 107.6,11.5 83.7,25.3 71.7,18.4"/><polygon class="fl" points="71.7,69.0 83.7,75.9 83.7,25.3 71.7,18.4"/><polygon class="fr" points="107.6,62.1 83.7,75.9 83.7,25.3 107.6,11.5"/></g><g class="u tk"><polygon class="ft" points="115.5,43.7 151.4,64.4 133.5,74.7 97.6,54.0"/><polygon class="fl" points="97.6,81.6 133.5,102.3 133.5,74.7 97.6,54.0"/><polygon class="fr" points="151.4,92.0 133.5,102.3 133.5,74.7 151.4,64.4"/></g></svg></div><b>Open the 3D explorer</b><em>Every loop and every part, exploded</em></a></div></div>
+      <div class="nav-item" data-g="market"><button class="nav-trig" aria-expanded="false" aria-haspopup="true">Marketplace<svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5l3-3" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="dd" role="menu"><div class="dd-list"><a href="#buyers" role="menuitem"><span class="di"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="9" r="3"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0"/><circle cx="17" cy="10" r="2.3"/><path d="M15.5 19a4.5 4.5 0 0 1 5-4.4"/></svg></span><span><b>For AI teams</b><em>Reserved and short-term capacity</em></span></a><a href="#owners" role="menuitem"><span class="di"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3.5" width="14" height="17" rx="1.5"/><path d="M8 7.5h8M8 11h8M8 14.5h8"/><circle cx="16" cy="17.5" r=".6" fill="currentColor"/></svg></span><span><b>For capacity owners</b><em>Fill blocks with committed buyers</em></span></a><a href="#exchange" role="menuitem"><span class="di"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12 20 4l-5 16-3-7z"/><path d="m12 13 8-9"/></svg></span><span><b>What a request looks like</b><em>Ask once, get options</em></span></a></div></div></div>
+      <div class="nav-item" data-g="contact"><button class="nav-trig" aria-expanded="false" aria-haspopup="true">Contact<svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5l3-3" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="dd" role="menu"><div class="dd-list"><a href="#contact" role="menuitem"><span class="di"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12 20 4l-5 16-3-7z"/><path d="m12 13 8-9"/></svg></span><span><b>Send a request</b><em>GPU, nodes, term and start date</em></span></a><a href="book/" role="menuitem"><span class="di"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5.5" width="16" height="14" rx="2"/><path d="M4 10h16M8.5 3.5v4M15.5 3.5v4"/></svg></span><span><b>Book a call</b><em>Weekdays 9am–5pm PT</em></span></a><a href="mailto:daniel@oberth.org" role="menuitem"><span class="di"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="6" width="17" height="12" rx="2"/><path d="m4 7 8 6 8-6"/></svg></span><span><b>daniel@oberth.org</b><em>Email Daniel directly</em></span></a></div></div></div>
+      </nav>
     <div style="display:flex;gap:10px;align-items:center">
       <a href="book/" class="btn btn-g desk">Book a call</a>
       <a href="#matcher" class="btn btn-p desk">Find capacity <svg aria-hidden="true"><use href="#arrow"/></svg></a>
@@ -347,7 +388,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
 
 <main id="main">
 <!-- HERO -->
-<section class="hero" id="top">
+<section data-nav="company" class="hero" id="top">
   <canvas id="orbits" aria-hidden="true"></canvas>
   <div class="wrap">
     <div class="eyebrow fade-in"><span class="pulse" aria-hidden="true"></span><span class="mono" style="color:#fff">US capacity · from January 2027</span></div>
@@ -374,7 +415,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
 
 
 <!-- NETWORK -->
-<section class="net" aria-labelledby="netH">
+<section data-nav="company" class="net" id="operators" aria-labelledby="netH">
   <div class="wrap">
     <div class="net-head reveal">
       <div class="idx mono" style="margin:0"><span id="netH">Data center operators we work with</span></div>
@@ -399,12 +440,33 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
   </div>
 </section>
 
-<!-- CAPACITY -->
-<section class="sec" id="capacity">
+<!-- COMPARE -->
+<section data-nav="company" class="sec" id="why" style="padding-top:40px">
   <div class="wrap">
     <div class="sec-head reveal">
       <div>
-        <div class="idx mono"><span>01</span><i></i><span>Capacity</span></div>
+        <div class="idx mono"><span>01</span><i></i><span>Why a broker</span></div>
+        <h2>Skip the search.</h2>
+      </div>
+      <p>Most capacity is never listed publicly. A broker sees more of the market than any single sales team.</p>
+    </div>
+    <div class="cmp reveal" role="table" aria-label="Searching alone compared with Oberth Compute">
+      <div class="cmp-row h" role="row"><div role="columnheader">&nbsp;</div><div role="columnheader">On your own</div><div role="columnheader"><svg aria-hidden="true" style="color:#fff"><use href="#mark"/></svg>With Oberth</div></div>
+      <div class="cmp-row" role="row"><div role="rowheader">Finding supply</div><div role="cell">Contact providers one by one</div><div role="cell">One request, several options</div></div>
+      <div class="cmp-row" role="row"><div role="rowheader">Comparing</div><div role="cell">Different formats and quotes</div><div role="cell">Side-by-side terms</div></div>
+      <div class="cmp-row" role="row"><div role="rowheader">Hardware range</div><div role="cell">Whatever one provider has</div><div role="cell">H100, H200, B200 and B300</div></div>
+      <div class="cmp-row" role="row"><div role="rowheader">Terms</div><div role="cell">Fixed by the provider</div><div role="cell">1 month to 5 years</div></div>
+      <div class="cmp-row" role="row"><div role="rowheader">Your time</div><div role="cell">Weeks of calls</div><div role="cell">One conversation</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CAPACITY -->
+<section data-nav="capacity" class="sec" id="capacity">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <div class="idx mono"><span>02</span><i></i><span>Capacity</span></div>
         <h2>Four generations.<br>One point of contact.</h2>
       </div>
       <p>From proven Hopper systems to Blackwell Ultra, delivered as 8-GPU nodes. Tell us the workload and the date; we bring back the options.</p>
@@ -440,11 +502,11 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
 </section>
 
 <!-- MATCHER -->
-<section class="sec" id="matcher" style="padding-top:40px">
+<section data-nav="capacity" class="sec" id="matcher" style="padding-top:40px">
   <div class="wrap">
     <div class="sec-head reveal">
       <div>
-        <div class="idx mono"><span>02</span><i></i><span>Capacity matcher</span></div>
+        <div class="idx mono"><span>03</span><i></i><span>Capacity matcher</span></div>
         <h2>Shape your request<br>in thirty seconds.</h2>
       </div>
       <p>Set the GPU, size, start and term. Send it, and we come back with matched options and pricing.</p>
@@ -516,11 +578,11 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
 </section>
 
 <!-- PROCESS -->
-<section class="sec" id="process" style="padding-top:60px">
+<section data-nav="capacity" class="sec" id="process" style="padding-top:60px">
   <div class="wrap">
     <div class="sec-head reveal">
       <div>
-        <div class="idx mono"><span>03</span><i></i><span>Process</span></div>
+        <div class="idx mono"><span>04</span><i></i><span>Process</span></div>
         <h2>Three steps<br>to a signed term.</h2>
       </div>
       <p>The Oberth effect: the burn is most efficient at the closest pass. We do the searching, so your team only engages at the moment that matters.</p>
@@ -551,18 +613,33 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
   </div>
 </section>
 
+<!-- FAQ -->
+<section data-nav="thermal" class="sec" id="thermal" style="padding-top:40px;padding-bottom:40px">
+  <div class="wrap">
+    <a class="th-card reveal" href="thermal/">
+      <div>
+        <div class="idx mono" style="margin:0"><span>Thermal infrastructure</span></div>
+        <h2>The cooling,<br>not just the compute.</h2>
+        <p>We also supply TONFY liquid and air cooling: CDUs, immersion tanks, dry coolers, chillers, fan walls and rear-door heat exchangers. Explore a full hall in 3D and explode any unit into its parts.</p>
+        <span class="btn btn-p">Explore thermal in 3D <svg aria-hidden="true"><use href="#arrow"/></svg></span>
+      </div>
+      <div class="th-vis"><svg class="iso" viewBox="-64 -152 351 291" aria-hidden="true"><g class="u dc"><polygon class="ft" points="139.4,-126.5 229.1,-74.8 189.2,-51.8 99.6,-103.5"/><polygon class="fl" points="99.6,-57.5 189.2,-5.7 189.2,-51.8 99.6,-103.5"/><polygon class="fr" points="229.1,-28.7 189.2,-5.7 189.2,-51.8 229.1,-74.8"/></g><ellipse class="fan" cx="134.5" cy="-106.4" rx="13.2" ry="7.7"/><ellipse class="fan" cx="164.3" cy="-89.1" rx="13.2" ry="7.7"/><ellipse class="fan" cx="194.2" cy="-71.9" rx="13.2" ry="7.7"/><path class="pb s" d="M213.1,-31.1 L228.1,-22.4 L228.1,-84.5 L144.4,-36.2 L65.7,-81.7 L19.9,-55.2 L19.9,-29.9"/><path class="pf s" d="M213.1,-31.1 L228.1,-22.4 L228.1,-84.5 L144.4,-36.2 L65.7,-81.7 L19.9,-55.2 L19.9,-29.9"/><path class="pb r" d="M19.9,-34.5 L19.9,-66.7 L67.7,-94.3 L157.4,-42.6 L231.1,-85.1 L231.1,-23.0 L209.1,-35.6"/><path class="pf r" d="M19.9,-34.5 L19.9,-66.7 L67.7,-94.3 L157.4,-42.6 L231.1,-85.1 L231.1,-23.0 L209.1,-35.6"/><path class="pb s" d="M17.9,-24.2 L17.9,-40.2 L91.6,2.3 L91.6,16.1"/><path class="pf s" d="M17.9,-24.2 L17.9,-40.2 L91.6,2.3 L91.6,16.1"/><path class="pb r" d="M89.6,21.9 L89.6,3.5 L14.9,-39.7 L14.9,-19.0"/><path class="pf r" d="M89.6,21.9 L89.6,3.5 L14.9,-39.7 L14.9,-19.0"/><path class="pb s" d="M91.6,2.3 L123.5,20.7 L123.5,57.5"/><path class="pf s" d="M91.6,2.3 L123.5,20.7 L123.5,57.5"/><path class="pb r" d="M127.5,64.4 L127.5,23.0 L91.6,2.3"/><path class="pf r" d="M127.5,64.4 L127.5,23.0 L91.6,2.3"/><g class="u cdu"><polygon class="ft" points="15.9,-39.1 31.9,-29.9 8.0,-16.1 -8.0,-25.3"/><polygon class="fl" points="-8.0,23.0 8.0,32.2 8.0,-16.1 -8.0,-25.3"/><polygon class="fr" points="31.9,18.4 8.0,32.2 8.0,-16.1 31.9,-29.9"/></g><g class="u rk"><polygon class="ft" points="39.8,-27.6 51.8,-20.7 27.9,-6.9 15.9,-13.8"/><polygon class="fl" points="15.9,36.8 27.9,43.7 27.9,-6.9 15.9,-13.8"/><polygon class="fr" points="51.8,29.9 27.9,43.7 27.9,-6.9 51.8,-20.7"/></g><g class="u rk"><polygon class="ft" points="53.8,-19.6 65.7,-12.7 41.8,1.1 29.9,-5.8"/><polygon class="fl" points="29.9,44.9 41.8,51.7 41.8,1.1 29.9,-5.8"/><polygon class="fr" points="65.7,37.9 41.8,51.7 41.8,1.1 65.7,-12.7"/></g><g class="u rk"><polygon class="ft" points="67.7,-11.5 79.7,-4.6 55.8,9.2 43.8,2.3"/><polygon class="fl" points="43.8,52.9 55.8,59.8 55.8,9.2 43.8,2.3"/><polygon class="fr" points="79.7,46.0 55.8,59.8 55.8,9.2 79.7,-4.6"/></g><g class="u rk"><polygon class="ft" points="81.7,-3.5 93.6,3.4 69.7,17.2 57.8,10.3"/><polygon class="fl" points="57.8,60.9 69.7,67.8 69.7,17.2 57.8,10.3"/><polygon class="fr" points="93.6,54.0 69.7,67.8 69.7,17.2 93.6,3.4"/></g><g class="u rk"><polygon class="ft" points="95.6,4.6 107.6,11.5 83.7,25.3 71.7,18.4"/><polygon class="fl" points="71.7,69.0 83.7,75.9 83.7,25.3 71.7,18.4"/><polygon class="fr" points="107.6,62.1 83.7,75.9 83.7,25.3 107.6,11.5"/></g><g class="u tk"><polygon class="ft" points="115.5,43.7 151.4,64.4 133.5,74.7 97.6,54.0"/><polygon class="fl" points="97.6,81.6 133.5,102.3 133.5,74.7 97.6,54.0"/><polygon class="fr" points="151.4,92.0 133.5,102.3 133.5,74.7 151.4,64.4"/></g><text x="237.1" y="-80.8" text-anchor="start">Dry cooler</text><text x="-16.0" y="-0.0" text-anchor="end">CDU</text><text x="19.9" y="56.5" text-anchor="end">Cold-plate racks</text><text x="149.5" y="104.8" text-anchor="start">Immersion tank</text></svg></div>
+    </a>
+  </div>
+</section>
+
 <!-- AUDIENCES -->
-<section class="sec" style="padding-top:20px">
+<section data-nav="market" class="sec" id="marketplace" style="padding-top:60px">
   <div class="wrap">
     <div class="aud">
-      <div class="spot reveal">
+      <div class="spot reveal" id="buyers">
         <span class="mono">For AI teams</span>
         <h3>Compute on your roadmap, not on a waitlist.</h3>
         <p>Labs, startups and enterprises that need committed capacity for training or inference.</p>
         <ul><li>Reserved nodes for multi-year plans</li><li>Short terms for runs and launches</li><li>One contact from request to signature</li></ul>
         <a href="#matcher" class="btn btn-g">Find capacity <svg aria-hidden="true"><use href="#arrow"/></svg></a>
       </div>
-      <div class="spot reveal" style="transition-delay:.08s">
+      <div class="spot reveal" id="owners" style="transition-delay:.08s">
         <span class="mono">For capacity owners</span>
         <h3>Fill upcoming capacity with committed buyers.</h3>
         <p>Data centers, neoclouds and operators with blocks coming online.</p>
@@ -574,11 +651,11 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
 </section>
 
 <!-- EXCHANGE -->
-<section class="sec" id="exchange" style="padding-top:60px">
+<section data-nav="market" class="sec" id="exchange" style="padding-top:60px">
   <div class="wrap">
     <div class="sec-head reveal">
       <div>
-        <div class="idx mono"><span>04</span><i></i><span>What a request looks like</span></div>
+        <div class="idx mono"><span>05</span><i></i><span>What a request looks like</span></div>
         <h2>Ask once.<br>Get options.</h2>
       </div>
       <p>An illustrative exchange. Real replies include location, ready date, interconnect, terms and pricing for each option.</p>
@@ -604,43 +681,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
   </div>
 </section>
 
-<!-- COMPARE -->
-<section class="sec" style="padding-top:40px">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <div>
-        <div class="idx mono"><span>05</span><i></i><span>Why a broker</span></div>
-        <h2>Skip the search.</h2>
-      </div>
-      <p>Most capacity is never listed publicly. A broker sees more of the market than any single sales team.</p>
-    </div>
-    <div class="cmp reveal" role="table" aria-label="Searching alone compared with Oberth Compute">
-      <div class="cmp-row h" role="row"><div role="columnheader">&nbsp;</div><div role="columnheader">On your own</div><div role="columnheader"><svg aria-hidden="true" style="color:#fff"><use href="#mark"/></svg>With Oberth</div></div>
-      <div class="cmp-row" role="row"><div role="rowheader">Finding supply</div><div role="cell">Contact providers one by one</div><div role="cell">One request, several options</div></div>
-      <div class="cmp-row" role="row"><div role="rowheader">Comparing</div><div role="cell">Different formats and quotes</div><div role="cell">Side-by-side terms</div></div>
-      <div class="cmp-row" role="row"><div role="rowheader">Hardware range</div><div role="cell">Whatever one provider has</div><div role="cell">H100, H200, B200 and B300</div></div>
-      <div class="cmp-row" role="row"><div role="rowheader">Terms</div><div role="cell">Fixed by the provider</div><div role="cell">1 month to 5 years</div></div>
-      <div class="cmp-row" role="row"><div role="rowheader">Your time</div><div role="cell">Weeks of calls</div><div role="cell">One conversation</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section class="sec" id="thermal" style="padding-top:40px;padding-bottom:40px">
-  <div class="wrap">
-    <a class="th-card reveal" href="thermal/">
-      <div>
-        <span class="mono">Thermal infrastructure</span>
-        <h2>The cooling,<br>not just the compute.</h2>
-        <p>We also supply TONFY liquid and air cooling: CDUs, immersion tanks, dry coolers, chillers, fan walls and rear-door heat exchangers. Explore a full hall in 3D and explode any unit into its parts.</p>
-        <span class="btn btn-p">Explore thermal in 3D <svg aria-hidden="true"><use href="#arrow"/></svg></span>
-      </div>
-      <div class="th-vis"><svg class="iso" viewBox="-64 -152 351 291" aria-hidden="true"><g class="u dc"><polygon class="ft" points="139.4,-126.5 229.1,-74.8 189.2,-51.8 99.6,-103.5"/><polygon class="fl" points="99.6,-57.5 189.2,-5.7 189.2,-51.8 99.6,-103.5"/><polygon class="fr" points="229.1,-28.7 189.2,-5.7 189.2,-51.8 229.1,-74.8"/></g><ellipse class="fan" cx="134.5" cy="-106.4" rx="13.2" ry="7.7"/><ellipse class="fan" cx="164.3" cy="-89.1" rx="13.2" ry="7.7"/><ellipse class="fan" cx="194.2" cy="-71.9" rx="13.2" ry="7.7"/><path class="pb s" d="M213.1,-31.1 L228.1,-22.4 L228.1,-84.5 L144.4,-36.2 L65.7,-81.7 L19.9,-55.2 L19.9,-29.9"/><path class="pf s" d="M213.1,-31.1 L228.1,-22.4 L228.1,-84.5 L144.4,-36.2 L65.7,-81.7 L19.9,-55.2 L19.9,-29.9"/><path class="pb r" d="M19.9,-34.5 L19.9,-66.7 L67.7,-94.3 L157.4,-42.6 L231.1,-85.1 L231.1,-23.0 L209.1,-35.6"/><path class="pf r" d="M19.9,-34.5 L19.9,-66.7 L67.7,-94.3 L157.4,-42.6 L231.1,-85.1 L231.1,-23.0 L209.1,-35.6"/><path class="pb s" d="M17.9,-24.2 L17.9,-40.2 L91.6,2.3 L91.6,16.1"/><path class="pf s" d="M17.9,-24.2 L17.9,-40.2 L91.6,2.3 L91.6,16.1"/><path class="pb r" d="M89.6,21.9 L89.6,3.5 L14.9,-39.7 L14.9,-19.0"/><path class="pf r" d="M89.6,21.9 L89.6,3.5 L14.9,-39.7 L14.9,-19.0"/><path class="pb s" d="M91.6,2.3 L123.5,20.7 L123.5,57.5"/><path class="pf s" d="M91.6,2.3 L123.5,20.7 L123.5,57.5"/><path class="pb r" d="M127.5,64.4 L127.5,23.0 L91.6,2.3"/><path class="pf r" d="M127.5,64.4 L127.5,23.0 L91.6,2.3"/><g class="u cdu"><polygon class="ft" points="15.9,-39.1 31.9,-29.9 8.0,-16.1 -8.0,-25.3"/><polygon class="fl" points="-8.0,23.0 8.0,32.2 8.0,-16.1 -8.0,-25.3"/><polygon class="fr" points="31.9,18.4 8.0,32.2 8.0,-16.1 31.9,-29.9"/></g><g class="u rk"><polygon class="ft" points="39.8,-27.6 51.8,-20.7 27.9,-6.9 15.9,-13.8"/><polygon class="fl" points="15.9,36.8 27.9,43.7 27.9,-6.9 15.9,-13.8"/><polygon class="fr" points="51.8,29.9 27.9,43.7 27.9,-6.9 51.8,-20.7"/></g><g class="u rk"><polygon class="ft" points="53.8,-19.6 65.7,-12.7 41.8,1.1 29.9,-5.8"/><polygon class="fl" points="29.9,44.9 41.8,51.7 41.8,1.1 29.9,-5.8"/><polygon class="fr" points="65.7,37.9 41.8,51.7 41.8,1.1 65.7,-12.7"/></g><g class="u rk"><polygon class="ft" points="67.7,-11.5 79.7,-4.6 55.8,9.2 43.8,2.3"/><polygon class="fl" points="43.8,52.9 55.8,59.8 55.8,9.2 43.8,2.3"/><polygon class="fr" points="79.7,46.0 55.8,59.8 55.8,9.2 79.7,-4.6"/></g><g class="u rk"><polygon class="ft" points="81.7,-3.5 93.6,3.4 69.7,17.2 57.8,10.3"/><polygon class="fl" points="57.8,60.9 69.7,67.8 69.7,17.2 57.8,10.3"/><polygon class="fr" points="93.6,54.0 69.7,67.8 69.7,17.2 93.6,3.4"/></g><g class="u rk"><polygon class="ft" points="95.6,4.6 107.6,11.5 83.7,25.3 71.7,18.4"/><polygon class="fl" points="71.7,69.0 83.7,75.9 83.7,25.3 71.7,18.4"/><polygon class="fr" points="107.6,62.1 83.7,75.9 83.7,25.3 107.6,11.5"/></g><g class="u tk"><polygon class="ft" points="115.5,43.7 151.4,64.4 133.5,74.7 97.6,54.0"/><polygon class="fl" points="97.6,81.6 133.5,102.3 133.5,74.7 97.6,54.0"/><polygon class="fr" points="151.4,92.0 133.5,102.3 133.5,74.7 151.4,64.4"/></g><text x="237.1" y="-80.8" text-anchor="start">Dry cooler</text><text x="-16.0" y="-0.0" text-anchor="end">CDU</text><text x="19.9" y="56.5" text-anchor="end">Cold-plate racks</text><text x="149.5" y="104.8" text-anchor="start">Immersion tank</text></svg></div>
-    </a>
-  </div>
-</section>
-
-<section class="sec" id="faq" style="padding-top:40px">
+<section data-nav="company" class="sec" id="faq" style="padding-top:40px">
   <div class="wrap faq">
     <div class="reveal">
       <div class="idx mono"><span>06</span><i></i><span>FAQ</span></div>
@@ -659,7 +700,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
 </section>
 
 <!-- CONTACT -->
-<section class="contact" id="contact">
+<section data-nav="contact" class="contact" id="contact">
   <div class="wrap">
     <div class="contact-card reveal">
       <svg class="bgmark" aria-hidden="true"><use href="#mark"/></svg>
@@ -825,6 +866,23 @@ $('cform').addEventListener('submit',e=>{e.preventDefault();
   const body=`Name: ${n}\nCompany: ${$('ccomp').value.trim()}\nEmail: ${em}\n\n${$('cmsg').value.trim()}`;
   location.href=`mailto:${EMAIL}?subject=${encodeURIComponent('Inquiry from '+n+($('ccomp').value.trim()?' ('+$('ccomp').value.trim()+')':''))}&body=${encodeURIComponent(body)}`;
 });
+})();
+</script>
+<script>
+(()=>{const items=[...document.querySelectorAll('.nav-item')];const mq=matchMedia('(hover:hover) and (min-width:761px)');
+const close=(x)=>items.forEach(i=>{if(i!==x){i.classList.remove('open');i.querySelector('.nav-trig').setAttribute('aria-expanded','false')}});
+items.forEach(it=>{const t=it.querySelector('.nav-trig');let tm;
+ const open=()=>{clearTimeout(tm);close(it);it.classList.add('open');t.setAttribute('aria-expanded','true')};
+ const shut=()=>{it.classList.remove('open');t.setAttribute('aria-expanded','false')};
+ it.addEventListener('mouseenter',()=>{if(mq.matches)open()});
+ it.addEventListener('mouseleave',()=>{if(mq.matches)tm=setTimeout(shut,140)});
+ t.addEventListener('click',e=>{e.stopPropagation();it.classList.contains('open')?shut():open()});
+ it.addEventListener('keydown',e=>{if(e.key==='Escape'){shut();t.focus()}});
+ it.querySelectorAll('.dd a').forEach(a=>a.addEventListener('click',()=>{shut();const nl=document.getElementById('navlinks');nl&&nl.classList.remove('open')}));
+});
+document.addEventListener('click',e=>{if(!e.target.closest('.nav-item'))close(null)});
+const spy=document.querySelectorAll('[data-nav]');
+if(spy.length){const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){const g=e.target.dataset.nav;items.forEach(i=>{const t=i.querySelector('.nav-trig');if(i.dataset.g===g)t.setAttribute('aria-current','true');else t.removeAttribute('aria-current')})}})},{rootMargin:'-45% 0px -50% 0px'});spy.forEach(s=>io.observe(s))}
 })();
 </script>
 </body>
